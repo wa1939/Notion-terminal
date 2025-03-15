@@ -106,7 +106,7 @@ export default function AboutPage() {
                 {/* Profile info */}
                 <div className="text-center">
                   <h2 className="text-xl font-bold text-term-white">Waleed Alghamdi</h2>
-                  <p className="text-term-cyan">Management Consultant</p>
+                  <p className="text-term-cyan">Consultant</p>
                 </div>
 
                 {/* Contact info */}
