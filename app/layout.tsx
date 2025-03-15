@@ -4,37 +4,29 @@ import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
+export const metadata = {
+  title: "Waleed Alghamdi - Portfolio",
+  description: "Senior Culture & Employee Experience Consultant",
+  generator: "v0.dev",
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  // Check if we're in a production environment
-  const isProduction = process.env.NODE_ENV === "production"
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
-
-          {/* Only include analytics in production */}
-          {isProduction && (
-            <>
-              <SpeedInsights />
-              <Analytics />
-            </>
-          )}
         </ThemeProvider>
+
+        {/* Always include analytics components without conditions */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
 }
 
-
-
-import './globals.css'
-
-export const metadata = {
-      generator: 'v0.dev'
-    };
