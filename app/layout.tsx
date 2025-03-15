@@ -5,8 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 export const metadata = {
-  title: "Waleed Alghamdi - Portfolio",
-  description: "Senior Culture & Employee Experience Consultant",
+  title: "Waleed Alghamdi",
+  description: "Waleed Alghamdi - Portfolio",
   generator: "v0.dev",
 }
 
