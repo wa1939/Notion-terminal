@@ -136,7 +136,7 @@ export default function TerminalFooter() {
 
         <div className="mt-8 pt-6 border-t border-term-cyan/10 text-center text-term-gray text-sm">
           <p className="flex items-center justify-center">
-            © {new Date().getFullYear()} Waleed Alghamdi. Made with
+            © {new Date().getFullYear()} Waleed. Made with
             <Heart className="h-4 w-4 mx-1 text-term-cyan" /> and
             <Code className="h-4 w-4 mx-1 text-term-cyan" />
           </p>

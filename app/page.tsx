@@ -9,7 +9,7 @@ import TypingAnimation from "@/components/typing-animation"
 import InteractiveTerminal from "@/components/interactive-terminal"
 import TerminalFooter from "@/components/terminal-footer"
 
-const typingWords = ["Waleed Alghamdi", "Consultant", "Dreamer", "Tech Enthusiast"]
+const typingWords = ["Waleed", "Consultant", "Dreamer", "Tech Enthusiast"]
 
 export default function Home() {
   const [time, setTime] = useState("")

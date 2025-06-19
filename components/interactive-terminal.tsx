@@ -148,7 +148,7 @@ export default function InteractiveTerminal() {
         </p>
 
         <p>
-          So, that's a bit about me. <strong className="text-term-white font-bold">I'm Waleed Alghamdi</strong>, and I
+          So, that's a bit about me. <strong className="text-term-white font-bold">I'm Waleed</strong>, and I
           believe in sharing knowledge, helping others, and doing whatever it takes to simplify life for the people
           around me.
         </p>
