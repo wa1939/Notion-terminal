@@ -61,22 +61,45 @@ export default function InteractiveTerminal() {
       router.push("/contact")
       return <p>Navigating to contact page...</p>
     },
-    skills: () => (
-      <div className="pl-4 space-y-1">
-        <p>My skills include:</p>
-        <p>
-          • <span className="text-term-cyan">Frontend</span>: React, Next.js, TypeScript
-        </p>
-        <p>
-          • <span className="text-term-cyan">Backend</span>: Node.js, Express, AWS
-        </p>
-        <p>
-          • <span className="text-term-cyan">Design</span>: UI/UX, Figma
-        </p>
-        <p>
-          • <span className="text-term-cyan">Other</span>: Technical consulting, Project management
-        </p>
-      </div>
+    // skills: () => (
+    //   <div className="pl-4 space-y-1">
+    //     <p>My skills include:</p>
+    //     <p>
+    //       • <span className="text-term-cyan">Frontend</span>: React, Next.js, TypeScript
+    //     </p>
+    //     <p>
+    //       • <span className="text-term-cyan">Backend</span>: Node.js, Express, AWS
+    //     </p>
+    //     <p>
+    //       • <span className="text-term-cyan">Design</span>: UI/UX, Figma
+    //     </p>
+    //     <p>
+    //       • <span className="text-term-cyan">Other</span>: Technical consulting, Project management
+    //     </p>
+    //   </div>
+      skills: () => (
+    <div className="pl-4 space-y-1">
+      <p>My skills include:</p>
+
+      {/* Core consulting & leadership */}
+      <p>• <span className="text-term-cyan">Project Management</span></p>
+      <p>• <span className="text-term-cyan">Transforming Organizational Culture</span></p>
+      <p>• <span className="text-term-cyan">Change Management</span></p>
+      <p>• <span className="text-term-cyan">Digital Transformation</span></p>
+
+      {/* Analytical & problem-solving */}
+      <p>• <span className="text-term-cyan">Analytical Skills</span></p>
+      <p>• <span className="text-term-cyan">Problem Solving</span></p>
+
+      {/* Business-driving capabilities */}
+      <p>• <span className="text-term-cyan">Business Development</span></p>
+      <p>• <span className="text-term-cyan">Client Satisfaction</span></p>
+
+      {/* Technical toolset */}
+      <p>• <span className="text-term-cyan">Advanced Microsoft Excel & PowerPoint</span></p>
+      <p>• <span className="text-term-cyan">Python & AI Integration</span></p>
+      <p>• <span className="text-term-cyan">Data Analysis</span></p>
+    </div>
     ),
     whoami: () => (
       <div className="space-y-4 overflow-y-auto max-h-[400px] pr-2">
