@@ -182,15 +182,10 @@ export default function AboutPage() {
                 </div>
                 <div className="bg-term-dark border border-term-cyan/20 p-5 rounded-md space-y-4 text-term-gray">
                   <p>
-                    Competent Consultant with a strong background in Project Management, Product Management, Business
-                    Analysis, Organizational Development, Operational Excellence, Strategic Planning, Change Management,
-                    and Culture Transformation. Certified as a Project Management Professional (PMP), Certified as a
-                    Risk Management Professional (PMI-RMP), Prosci® Certified Change Practitioner, and Certified Change
-                    Culture Leader.
+                    Transformation consultant experienced in strategy execution, culture & strategy alignment, project and product management, and AI-driven digital transformation. I’ve partnered with 20+ organizations across the MENA region, leading 15+ transformation projects that turned strategic ambitions into measurable results from aligning culture and strategy to implementing AI-enabled solutions that boost efficiency. I’m a certified Change Culture Leader, PMP®, PMI-RMP®, Prosci®, and currently pursuing my MBA.
                   </p>
                   <p>
-                    I have successfully led over 15 culture transformation projects for top-tier clients in the Middle
-                    East. Passionate about integrating AI and innovative technologies to enhance business processes.
+                    I’m an AI and technology enthusiast, passionate about using new technology and innovative solutions to make organizations run better and people’s work easier. My simple belief: every work I do should leave a positive, lasting impact, helping organizations, and people become better than before.
                   </p>
                 </div>
               </section>
@@ -495,7 +490,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </section> */}
-              
+
               {/* Education section */}
               <section className="space-y-4">
                 <div className="flex items-center mb-2">
