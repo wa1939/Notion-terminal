@@ -2,6 +2,8 @@ import Link from "next/link"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import MinimalNav from "@/components/minimal-nav"
 import TerminalFooter from "@/components/terminal-footer"
+import CalEmbed from "@/components/cal-embed"
+import NewsletterSignup from "@/components/newsletter-signup"
 
 export default function ContactPage() {
   return (
@@ -60,6 +62,9 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
+
+                {/* Newsletter Signup */}
+                <NewsletterSignup />
               </div>
 
               <div className="space-y-6">
@@ -74,27 +79,32 @@ export default function ContactPage() {
                 </div>
 
                 <div className="cli-panel px-4 py-4">
-                  <div className="cli-topline">book a time</div>
-                  <p className="mt-3 text-sm leading-7 text-term-gray">
-                    I prefer a direct booking link here instead of an embedded widget. It is faster, cleaner, and easier on any device.
-                  </p>
+                  <div className="cli-topline">quick links</div>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a
                       href="https://cal.com/waleedalghamdi/30min"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-term-line px-4 py-3 text-sm text-term-white transition-colors hover:border-term-cyan/40 hover:text-term-cyan"
+                      className="inline-flex items-center gap-2 border border-term-white bg-term-white px-4 py-3 text-sm text-term-black transition-colors hover:bg-term-cyan hover:border-term-cyan hover:text-term-black font-semibold"
                     >
                       book a 30-minute session
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
-                    <a href="mailto:waok@outlook.sa" className="inline-flex items-center gap-2 border border-term-line px-4 py-3 text-sm text-term-white transition-colors hover:border-term-cyan/40 hover:text-term-cyan">
+                    <a href="mailto:waok@outlook.sa" className="inline-flex items-center gap-2 border border-term-line px-4 py-3 text-sm text-term-white transition-colors hover:bg-term-white hover:text-term-black hover:border-term-white">
                       email instead
                     </a>
                   </div>
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Cal.com Embed Section */}
+          <section className="mt-8">
+            <div className="text-sm text-term-gray mb-4">
+              <span className="text-term-green">$</span> <span className="text-term-cyan">open</span> calendar
+            </div>
+            <CalEmbed />
           </section>
         </div>
       </main>

@@ -206,9 +206,9 @@ export default function InteractiveTerminal() {
 
   return (
     <div className="cli-frame overflow-hidden">
-      <div className="flex items-center justify-between border-b border-term-line px-4 py-3 text-xs uppercase tracking-[0.16em] text-term-gray">
-        <div>interactive terminal</div>
-        <div>type naturally or use commands</div>
+      <div className="flex items-center justify-between border-b border-term-line px-4 py-3 text-xs uppercase tracking-[0.16em] text-term-gray bg-term-dark">
+        <div>[ root@waok:~ ]</div>
+        <div>/bin/sh</div>
       </div>
 
       <div ref={bodyRef} className="max-h-[26rem] overflow-y-auto px-4 py-4 text-sm leading-7">

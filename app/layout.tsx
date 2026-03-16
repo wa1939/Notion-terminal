@@ -2,6 +2,7 @@ import type React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import StarField from "@/components/star-field"
 import { readingSerif, uiMono } from "@/app/fonts"
 import "./globals.css"
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${uiMono.variable} ${readingSerif.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <StarField />
           {children}
         </ThemeProvider>
 

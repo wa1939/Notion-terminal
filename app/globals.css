@@ -58,8 +58,8 @@
 
   body {
     @apply bg-background text-foreground;
-    background-color: #0b0b0f;
-    color: #f3eadb;
+    background-color: var(--term-black, #0b0b0f);
+    color: var(--term-white, #f3eadb);
     font-family: var(--font-ui-mono), "IBM Plex Mono", "JetBrains Mono", monospace;
     text-rendering: optimizeLegibility;
   }
@@ -89,7 +89,7 @@
   .cli-frame {
     border: 1px solid rgba(243, 234, 219, 0.14);
     background: rgba(18, 18, 23, 0.96);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    box-shadow: 6px 6px 0px rgba(42, 42, 49, 1);
   }
 
   .cli-panel {
@@ -119,11 +119,17 @@
 
   .cli-table-row {
     border-top: 1px solid rgba(243, 234, 219, 0.08);
-    transition: background-color 0.15s ease;
+    transition: background-color 0s, color 0s;
   }
 
   .cli-table-row:hover {
-    background: rgba(167, 184, 255, 0.08);
+    background: #f3eadb;
+    color: #0b0b0f !important;
+  }
+
+  .cli-table-row:hover * {
+    color: #0b0b0f !important;
+    border-color: #0b0b0f !important;
   }
 
   .cli-table-row--active {
@@ -257,6 +263,222 @@
     font-family: var(--font-ui-mono), "IBM Plex Mono", monospace;
     font-size: 0.95rem;
     text-align: left;
+  }
+}
+
+/* ── Smooth cursor pulse animation ─────────────────── */
+@keyframes cursor-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--term-cyan, #56B6C2); }
+  50% { opacity: 0.3; box-shadow: 0 0 0px transparent; }
+}
+
+.cursor-glow {
+  animation: cursor-pulse 1s ease-in-out infinite;
+}
+
+/* ── Reading mode styles ──────────────────────────── */
+.reading-focus {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.reading-focus .post-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.reading-focus-body {
+  font-size: 1.15rem;
+  line-height: 2.05;
+}
+
+/* Focus mode: dim everything except article */
+body.reading-focus-active nav,
+body.reading-focus-active footer {
+  opacity: 0.15;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+body.reading-focus-active aside {
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+/* Smooth transitions for all reading mode changes */
+article,
+.cli-frame,
+.post-content {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Reading theme: sepia */
+.reading-theme-sepia {
+  background-color: #f4ecd8 !important;
+  border-color: rgba(139, 94, 60, 0.2) !important;
+}
+
+.reading-theme-sepia .post-content {
+  --reading-bg: #f4ecd8;
+  --reading-fg: #433422;
+  --reading-gray: #7a6652;
+  --reading-link: #8b5e3c;
+  color: var(--reading-fg);
+}
+
+.reading-theme-sepia .post-content h1,
+.reading-theme-sepia .post-content h2,
+.reading-theme-sepia .post-content h3,
+.reading-theme-sepia .post-content h4,
+.reading-theme-sepia .post-content h5,
+.reading-theme-sepia .post-content h6 {
+  color: #2a1f10;
+}
+
+.reading-theme-sepia .post-content p,
+.reading-theme-sepia .post-content li {
+  color: var(--reading-fg);
+}
+
+.reading-theme-sepia .post-content a {
+  color: var(--reading-link);
+  border-bottom-color: rgba(139, 94, 60, 0.35);
+}
+
+.reading-theme-sepia .post-content blockquote {
+  background: rgba(139, 94, 60, 0.08);
+  border-left-color: var(--reading-link);
+  color: var(--reading-fg);
+}
+
+.reading-theme-sepia .post-content pre {
+  background: #eee5d0;
+  border-color: rgba(139, 94, 60, 0.2);
+}
+
+.reading-theme-sepia .post-content code {
+  color: #8b5e3c;
+}
+
+/* Sepia: style the header and divider bars */
+.reading-theme-sepia [class*="border-b"],
+.reading-theme-sepia [class*="border-t"],
+.reading-theme-sepia [class*="border-y"] {
+  border-color: rgba(139, 94, 60, 0.15);
+}
+
+.reading-theme-sepia [class*="tracking-"][class*="text-[var(--term-gray)]"] {
+  color: #7a6652;
+}
+
+/* Reading theme: light */
+.reading-theme-light {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
+
+.reading-theme-light .post-content {
+  --reading-bg: #ffffff;
+  --reading-fg: #1a1a1a;
+  --reading-gray: #6b7280;
+  --reading-link: #2563eb;
+  color: var(--reading-fg);
+}
+
+.reading-theme-light .post-content h1,
+.reading-theme-light .post-content h2,
+.reading-theme-light .post-content h3,
+.reading-theme-light .post-content h4,
+.reading-theme-light .post-content h5,
+.reading-theme-light .post-content h6 {
+  color: #000000;
+}
+
+.reading-theme-light .post-content p,
+.reading-theme-light .post-content li {
+  color: var(--reading-fg);
+}
+
+.reading-theme-light .post-content a {
+  color: var(--reading-link);
+  border-bottom-color: rgba(37, 99, 235, 0.35);
+}
+
+.reading-theme-light .post-content blockquote {
+  background: #f3f4f6;
+  border-left-color: var(--reading-link);
+  color: var(--reading-fg);
+}
+
+.reading-theme-light .post-content pre {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.reading-theme-light .post-content code {
+  color: #dc2626;
+}
+
+/* Light: style the header and divider bars */
+.reading-theme-light [class*="border-b"],
+.reading-theme-light [class*="border-t"],
+.reading-theme-light [class*="border-y"] {
+  border-color: #e5e7eb;
+}
+
+.reading-theme-light [class*="tracking-"][class*="text-[var(--term-gray)]"] {
+  color: #6b7280;
+}
+
+/* Reading spacing variants */
+.reading-spacing-compact .post-content {
+  line-height: 1.65;
+}
+
+.reading-spacing-compact .post-content p {
+  margin-bottom: 1rem;
+}
+
+.reading-spacing-comfortable .post-content {
+  line-height: 1.95;
+}
+
+.reading-spacing-comfortable .post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.reading-spacing-spacious .post-content {
+  line-height: 2.3;
+}
+
+.reading-spacing-spacious .post-content p {
+  margin-bottom: 2rem;
+}
+
+/* ── View Transitions (supported browsers) ────────── */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+}
+
+/* ── Page fade-in on mount ────────────────────────── */
+main {
+  animation: page-fade-in 0.3s ease-out;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
