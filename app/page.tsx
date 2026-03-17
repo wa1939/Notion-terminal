@@ -12,21 +12,21 @@ import ApodWidget from "@/components/apod-widget"
 import AnimateOnScroll from "@/components/animate-on-scroll"
 
 export const metadata: Metadata = {
-  title: "Waleed Alghamdi — Problem Solver · Product Builder · Strategy to Execution",
+  title: "Waleed Alhamed — Problem Solver · Product Builder · Strategy to Execution",
   description:
     "I build products, lead teams, and turn strategy into execution. Consultant, builder, and AI product maker based in Saudi Arabia.",
   openGraph: {
-    title: "Waleed Alghamdi",
+    title: "Waleed Alhamed",
     description: "Problem Solver · Product Builder · Strategy to Execution",
     url: "https://waleedalghamdi.com",
-    siteName: "Waleed Alghamdi",
+    siteName: "Waleed Alhamed",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Waleed Alghamdi",
+    title: "Waleed Alhamed",
     description: "Problem Solver · Product Builder · Strategy to Execution",
-    creator: "@walahamed",
+    creator: "@walalhamed",
   },
 }
 
@@ -73,7 +73,7 @@ export default async function Home() {
                     <div className="relative aspect-[5/4] border-b border-term-line overflow-hidden">
                       <HalftoneImage
                         src="/dbcf93d6-e01e-4308-bea1-11412058a5cd.webp"
-                        alt="Waleed Alghamdi"
+                        alt="Waleed Alhamed"
                       />
                     </div>
                     <div className="p-3 text-xs uppercase tracking-[0.14em] text-term-gray bg-term-black">

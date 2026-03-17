@@ -9,6 +9,8 @@ import MarkdownRender from "@/components/markdown-render"
 import TerminalCommentSection from "@/components/terminal-comment-section"
 import BlogPostCard from "@/components/blog-post-card"
 import ReadingControls from "@/components/reading-controls"
+import NewsletterSignup from "@/components/newsletter-signup"
+import PostEngagement from "@/components/post-engagement"
 import { formatPostDate } from "@/lib/format-post-date"
 import { getPostBySlug, getAllPosts } from "@/lib/posts"
 
@@ -24,8 +26,8 @@ export async function generateMetadata({
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"
 
   return {
-    title: `${post.title} — Waleed Alghamdi`,
-    description: post.excerpt || `Read ${post.title} on Waleed Alghamdi's journal.`,
+    title: `${post.title} — Waleed Alhamed`,
+    description: post.excerpt || `Read ${post.title} on Waleed Alhamed's journal.`,
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -34,14 +36,14 @@ export async function generateMetadata({
       authors: [post.author],
       tags: post.tags,
       url: `${siteUrl}/blog/${post.slug}`,
-      siteName: "Waleed Alghamdi",
+      siteName: "Waleed Alhamed",
       ...(post.coverImage ? { images: [{ url: post.coverImage }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      creator: "@walahamed",
+      creator: "@walalhamed",
     },
   }
 }
@@ -146,15 +148,31 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="border-y-[3px] border-double border-[var(--term-line)] py-1.5 my-8 text-center text-[10px] uppercase tracking-[0.3em] text-[var(--term-gray)]">
                   eof
                 </div>
+
+                {/* Engagement Bar */}
+                <div className="max-w-[65ch] mx-auto">
+                  <PostEngagement slug={post.slug} />
+                </div>
               </div>
 
-              {/* Sidebar */}
-              <aside className="space-y-4">
-                <ReadingControls headings={post.headings} wordCount={post.content.split(/\s+/).filter(Boolean).length} />
-                <TableOfContents headings={post.headings} />
+              {/* Sidebar: reading controls on mobile appear first via order */}
+              <aside className="order-first lg:order-none">
+                <div className="lg:sticky lg:top-24 space-y-4 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
+                  <ReadingControls headings={post.headings} wordCount={post.content.split(/\s+/).filter(Boolean).length} />
+                  <div className="hidden lg:block">
+                    <TableOfContents headings={post.headings} />
+                  </div>
+                </div>
               </aside>
             </div>
           </article>
+
+          <section className="mt-10 space-y-5">
+            <div className="text-sm text-[var(--term-gray)]">
+              <span className="text-[var(--term-green)]">$</span> <span className="text-[var(--term-cyan)]">node</span> comments.js
+            </div>
+            <TerminalCommentSection />
+          </section>
 
           {relatedPosts.length > 0 && (
             <section className="mt-10 space-y-5">
@@ -169,11 +187,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </section>
           )}
 
-          <section className="mt-10 space-y-5">
-            <div className="text-sm text-[var(--term-gray)]">
-              <span className="text-[var(--term-green)]">$</span> <span className="text-[var(--term-cyan)]">node</span> comments.js
+          <section className="mt-10 max-w-2xl mx-auto">
+            <div className="cli-frame rounded-xl overflow-hidden border border-[var(--term-line)]">
+              <div className="flex items-center justify-between border-b border-[var(--term-line)] px-4 py-3 text-xs uppercase tracking-[0.14em] text-[var(--term-gray)]">
+                <span><span className="text-[var(--term-green)]">$</span> subscribe --no-spam --pinky-promise</span>
+                <span>newsletter</span>
+              </div>
+              <div className="p-5 space-y-4">
+                <p className="text-sm text-[var(--term-white)] leading-relaxed">
+                  I write about building products, leading teams, and the things I figure out along the way. Honestly? It{"'"}s some of my best thinking.
+                </p>
+                <p className="text-xs text-[var(--term-gray)] leading-relaxed">
+                  I solemnly swear: no spam, no selling your email, no {'"'}weekly digest{'"'} nonsense. Just a quiet ping when I publish something new. That{"'"}s literally it.
+                </p>
+                <NewsletterSignup />
+                <p className="text-[10px] text-[var(--term-gray)] text-center tracking-wide">
+                  Your inbox is sacred. I respect that.
+                </p>
+              </div>
             </div>
-            <TerminalCommentSection />
           </section>
         </div>
       </main>

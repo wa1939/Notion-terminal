@@ -94,6 +94,13 @@ export async function POST(request: Request) {
 <head><meta charset="utf-8" /></head>
 <body style="margin:0;padding:0;background:#0B0B0F;font-family:'Courier New',monospace;">
   <div style="max-width:600px;margin:0 auto;padding:32px 24px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <pre style="display:inline-block;color:#7dd3fc;font-family:'Courier New',monospace;font-size:14px;line-height:1.2;margin:0;">
+&#x2588;&#x2557; &#x2554;&#x2588;&#x2557; &#x2554;&#x2550;&#x2557;
+&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551; &#x2560;&#x2550;&#x2563;
+&#x255A;&#x2550;&#x255D;&#x255A;&#x255D; &#x2569; &#x2569;</pre>
+      <div style="color:#918A80;font-size:10px;text-transform:uppercase;letter-spacing:0.3em;margin-top:8px;">waleed alhamed</div>
+    </div>
     <div style="border:1px solid #2A2A31;border-radius:12px;overflow:hidden;">
       <div style="padding:12px 16px;border-bottom:1px solid #2A2A31;font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#918A80;">
         new transmission
@@ -102,7 +109,7 @@ export async function POST(request: Request) {
         <p style="color:#8FD4A7;font-size:12px;margin:0 0 16px;">$ cat new-post.md</p>
         <h1 style="color:#F3EADB;font-size:22px;font-weight:bold;margin:0 0 12px;line-height:1.3;">${safeTitle}</h1>
         ${safeExcerpt ? `<p style="color:#918A80;font-size:14px;line-height:1.6;margin:0 0 24px;">${safeExcerpt}</p>` : ""}
-        <a href="${postUrl}" style="display:inline-block;padding:10px 24px;background:#A7B8FF;color:#0B0B0F;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.1em;border-radius:6px;">
+        <a href="${escapeHtml(postUrl)}" style="display:inline-block;padding:10px 24px;background:#A7B8FF;color:#0B0B0F;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.1em;border-radius:6px;">
           Read Post →
         </a>
       </div>

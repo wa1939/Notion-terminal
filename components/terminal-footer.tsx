@@ -22,7 +22,7 @@ export default function TerminalFooter() {
       <div className="border-t border-term-line bg-term-black px-4 py-2">
         <div className="container mx-auto flex flex-col gap-2 md:flex-row md:items-center md:justify-between text-xs font-mono uppercase tracking-[0.14em] text-term-gray">
           <span>
-            by <span className="text-term-white">waleed alghamdi</span> | {time || "--:--"}
+            by <span className="text-term-white">waleed alhamed</span> | {time || "--:--"}
           </span>
           <span className="flex items-center gap-4">
             <span className="flex items-center gap-1">

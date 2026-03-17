@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Waleed Alghamdi",
+  name: "Waleed Alhamed",
   title: "Problem Solver · Product Builder · Strategy to Execution",
   headline: "I build products, lead teams, and turn strategy into execution.",
   bio: [
@@ -12,7 +12,7 @@ export const siteConfig = {
   socials: {
     github: { url: "https://github.com/wa1939", label: "GitHub", icon: "</>" },
     linkedin: { url: "https://www.linkedin.com/in/waleedalghamdi/", label: "LinkedIn", icon: "[in]" },
-    x: { url: "https://x.com/waleedpy", label: "X", icon: "𝕏" },
+    x: { url: "https://x.com/walalhamed", label: "X", icon: "𝕏" },
   },
   stats: [
     { label: "products built", value: "10+" },
@@ -72,8 +72,8 @@ export const siteConfig = {
     { name: "McKinsey Forward", desc: "McKinsey Leadership Program", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fAxr6RxvxxnXpcQ3dWEApFWLimfkdp.webp" },
   ],
   credentials: [
-    { name: "MBA (in progress)", icon: "🎓", desc: "UIUC Gies College of Business" },
-    { name: "BE Mechanical Engineering", icon: "🏗", desc: "University of Jeddah" },
+    { name: "MBA (in progress)", icon: "🎓", desc: "UIUC Gies College of Business", image: "/University-Wordmark-Full-Color-RGB-1.png" },
+    { name: "BE Mechanical Engineering", icon: "🏗", desc: "University of Jeddah", image: "/جامعة_جدة.png" },
     { name: "Arabic + English", icon: "🌍", desc: "Bilingual Fluency" },
   ],
 } as const

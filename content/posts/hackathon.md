@@ -1,5 +1,5 @@
 ---
-author: Waleed Alghamdi
+author: Waleed Alhamed
 coverImage: /images/blog/hackathon-team.jpg
 date: 2023-12-20
 date_created: 2026-03-17

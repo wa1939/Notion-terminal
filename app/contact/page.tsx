@@ -7,19 +7,19 @@ import CalEmbed from "@/components/cal-embed"
 import NewsletterSignup from "@/components/newsletter-signup"
 
 export const metadata: Metadata = {
-  title: "Contact — Waleed Alghamdi",
+  title: "Contact — Waleed Alhamed",
   description:
     "Get in touch for transformation, product building, or advisory engagements. Book a 30-minute session or send an email.",
   openGraph: {
-    title: "Contact — Waleed Alghamdi",
+    title: "Contact — Waleed Alhamed",
     description: "Get in touch for transformation, product building, or advisory engagements.",
     url: "https://waleedalghamdi.com/contact",
-    siteName: "Waleed Alghamdi",
+    siteName: "Waleed Alhamed",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Contact — Waleed Alghamdi",
+    title: "Contact — Waleed Alhamed",
     description: "Get in touch for transformation, product building, or advisory engagements.",
   },
 }

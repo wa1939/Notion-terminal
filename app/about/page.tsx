@@ -7,19 +7,19 @@ import AnimateOnScroll from "@/components/animate-on-scroll"
 import { siteConfig } from "@/content/site"
 
 export const metadata: Metadata = {
-  title: "About — Waleed Alghamdi",
+  title: "About — Waleed Alhamed",
   description:
     "Builder, strategist, and problem solver. Leading culture & employee experience at Elm Company. MBA candidate at UIUC Gies.",
   openGraph: {
-    title: "About — Waleed Alghamdi",
+    title: "About — Waleed Alhamed",
     description: "Builder, strategist, and problem solver.",
     url: "https://waleedalghamdi.com/about",
-    siteName: "Waleed Alghamdi",
+    siteName: "Waleed Alhamed",
     type: "profile",
   },
   twitter: {
     card: "summary",
-    title: "About — Waleed Alghamdi",
+    title: "About — Waleed Alhamed",
     description: "Builder, strategist, and problem solver.",
   },
 }
@@ -40,7 +40,7 @@ export default function AboutPage() {
       <div className="fixed inset-0 pointer-events-none opacity-[0.015] bg-[url('/noise.png')] animate-noise" />
 
       <main className="flex-grow pt-24 pb-12">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-4 max-w-6xl">
           <Link href="/" className="mb-8 inline-flex items-center gap-2 text-[var(--term-gray)] transition-colors hover:text-[var(--term-cyan)]">
             ← back to home
           </Link>
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 {/* CV Download */}
                 <a
                   href="/cv.pdf"
-                  download="waleed-alghamdi-cv.pdf"
+                  download="waleed-alhamed-cv.pdf"
                   className="flex items-center gap-3 rounded-lg border border-[var(--term-line)] bg-[var(--term-darker)] px-4 py-3 hover:border-[var(--term-cyan)] hover:bg-[var(--term-cyan)]/5 transition-all group"
                 >
                   <div className="text-sm text-[var(--term-gray)] group-hover:text-[var(--term-cyan)] transition-colors">
@@ -124,7 +124,7 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                   {siteConfig.stats.map((stat, index) => (
                     <AnimateOnScroll key={stat.label} delay={index * 80}>
                     <div className="rounded-lg border border-[var(--term-line)] bg-[var(--term-darker)] px-4 py-4">
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
                 {/* Experience Timeline */}
                 <AnimateOnScroll>
-                <div className="rounded-lg border border-[var(--term-line)] bg-[var(--term-darker)] px-4 py-5 whitespace-pre font-mono text-sm leading-[1.8] overflow-x-auto text-[var(--term-gray)]">
+                <div className="rounded-lg border border-[var(--term-line)] bg-[var(--term-darker)] px-4 py-5 whitespace-pre-wrap font-mono text-sm leading-[1.8] text-[var(--term-gray)]">
                   <div className="text-[var(--term-white)] mb-4">
                     <span className="text-[var(--term-green)]">$</span> tree ./experience
                   </div>
@@ -173,10 +173,10 @@ export default function AboutPage() {
                 <AnimateOnScroll>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-[var(--term-gray)] mb-3">Certifications</div>
-                  <div className="flex gap-4 overflow-x-auto pb-2 -mx-1 px-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pb-2">
                     {siteConfig.certifications.map((badge) => (
-                      <div key={badge.name} className="flex-shrink-0 group text-center">
-                        <div className="w-[120px] h-[120px] rounded-xl border border-[var(--term-line)] bg-[var(--term-darker)] overflow-hidden hover:border-[var(--term-cyan)] transition-all duration-300">
+                      <div key={badge.name} className="group text-center">
+                        <div className="aspect-square rounded-xl border border-[var(--term-line)] bg-[var(--term-darker)] overflow-hidden hover:border-[var(--term-cyan)] transition-all duration-300">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={badge.image}
@@ -193,10 +193,15 @@ export default function AboutPage() {
 
                 {/* Additional Credentials */}
                 <AnimateOnScroll>
-                <div className="flex gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {siteConfig.credentials.map((cred) => (
                     <div key={cred.name} className="flex items-center gap-2 rounded-lg border border-[var(--term-line)] bg-[var(--term-darker)] px-3 py-2 hover:border-[var(--term-cyan)] transition-colors group">
-                      <span className="text-lg flex-shrink-0">{cred.icon}</span>
+                      {"image" in cred && cred.image ? (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img src={cred.image} alt={cred.desc} className="h-6 w-auto flex-shrink-0 object-contain" />
+                      ) : (
+                        <span className="text-lg flex-shrink-0">{cred.icon}</span>
+                      )}
                       <div>
                         <div className="text-xs font-bold text-[var(--term-white)] group-hover:text-[var(--term-cyan)] transition-colors">{cred.name}</div>
                         <div className="text-[10px] text-[var(--term-gray)]">{cred.desc}</div>

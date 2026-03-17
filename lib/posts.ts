@@ -84,7 +84,7 @@ function parsePost(filePath: string): ParsedPost {
     title: data.title || "Untitled",
     slug,
     date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
-    author: data.author || "Waleed Alghamdi",
+    author: data.author || "Waleed Alhamed",
     excerpt: data.excerpt || "",
     content,
     coverImage: data.coverImage || undefined,

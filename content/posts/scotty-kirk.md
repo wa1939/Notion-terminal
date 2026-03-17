@@ -1,5 +1,5 @@
 ---
-author: Waleed Alghamdi
+author: Waleed Alhamed
 coverImage: /images/blog/captain-kirk-and-mr-scotty-star-trek.jpg
 date: 2023-12-26
 date_created: 2026-03-17

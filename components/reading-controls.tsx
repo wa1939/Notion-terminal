@@ -109,7 +109,7 @@ export default function ReadingControls({ headings, wordCount }: ReadingControls
   const readingTime = Math.max(1, Math.ceil(wordCount / 200))
 
   return (
-    <div className="space-y-4 sticky top-24">
+    <div className="space-y-4">
       {/* Progress */}
       <div className="space-y-1.5">
         <div className="flex justify-between text-[10px] uppercase tracking-widest text-[var(--term-gray)]">

@@ -261,7 +261,7 @@ export default function ThemePicker() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div
             ref={modalRef}
-            className="w-[340px] max-h-[420px] border border-term-line bg-term-black shadow-[0_8px_32px_rgba(0,0,0,0.6)] overflow-hidden font-mono text-sm"
+            className="w-[min(340px,calc(100vw-2rem))] max-h-[min(420px,calc(100vh-4rem))] border border-term-line bg-term-black shadow-[0_8px_32px_rgba(0,0,0,0.6)] overflow-hidden font-mono text-sm"
             onKeyDown={handleKeyDown}
           >
             {/* Modal Header */}
