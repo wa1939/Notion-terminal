@@ -25,8 +25,8 @@ export async function generateMetadata({
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"
 
   return {
-    title: `${post.title} — Waleed Alghamdi`,
-    description: post.excerpt || `Read ${post.title} on Waleed Alghamdi's journal.`,
+    title: `${post.title} — Waleed Alhamed`,
+    description: post.excerpt || `Read ${post.title} on Waleed Alhamed's journal.`,
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -35,7 +35,7 @@ export async function generateMetadata({
       authors: [post.author],
       tags: post.tags,
       url: `${siteUrl}/blog/${post.slug}`,
-      siteName: "Waleed Alghamdi",
+      siteName: "Waleed Alhamed",
       ...(post.coverImage ? { images: [{ url: post.coverImage }] } : {}),
     },
     twitter: {

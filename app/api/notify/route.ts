@@ -99,7 +99,7 @@ export async function POST(request: Request) {
 &#x2588;&#x2557; &#x2554;&#x2588;&#x2557; &#x2554;&#x2550;&#x2557;
 &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551; &#x2560;&#x2550;&#x2563;
 &#x255A;&#x2550;&#x255D;&#x255A;&#x255D; &#x2569; &#x2569;</pre>
-      <div style="color:#918A80;font-size:10px;text-transform:uppercase;letter-spacing:0.3em;margin-top:8px;">waleed alghamdi</div>
+      <div style="color:#918A80;font-size:10px;text-transform:uppercase;letter-spacing:0.3em;margin-top:8px;">waleed alhamed</div>
     </div>
     <div style="border:1px solid #2A2A31;border-radius:12px;overflow:hidden;">
       <div style="padding:12px 16px;border-bottom:1px solid #2A2A31;font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#918A80;">

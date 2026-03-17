@@ -7,19 +7,19 @@ import { getAllPosts } from "@/lib/posts"
 import JournalClient from "@/components/journal-client"
 
 export const metadata: Metadata = {
-  title: "Journal — Waleed Alghamdi",
+  title: "Journal — Waleed Alhamed",
   description:
     "Thoughts on strategy, technology, digital transformation, and the craft of making complicated things feel clear.",
   openGraph: {
-    title: "Journal — Waleed Alghamdi",
+    title: "Journal — Waleed Alhamed",
     description: "Thoughts on strategy, technology, and digital transformation.",
     url: "https://waleedalghamdi.com/blog",
-    siteName: "Waleed Alghamdi",
+    siteName: "Waleed Alhamed",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Journal — Waleed Alghamdi",
+    title: "Journal — Waleed Alhamed",
     description: "Thoughts on strategy, technology, and digital transformation.",
   },
 }

@@ -7,19 +7,19 @@ import AnimateOnScroll from "@/components/animate-on-scroll"
 import { siteConfig } from "@/content/site"
 
 export const metadata: Metadata = {
-  title: "About — Waleed Alghamdi",
+  title: "About — Waleed Alhamed",
   description:
     "Builder, strategist, and problem solver. Leading culture & employee experience at Elm Company. MBA candidate at UIUC Gies.",
   openGraph: {
-    title: "About — Waleed Alghamdi",
+    title: "About — Waleed Alhamed",
     description: "Builder, strategist, and problem solver.",
     url: "https://waleedalghamdi.com/about",
-    siteName: "Waleed Alghamdi",
+    siteName: "Waleed Alhamed",
     type: "profile",
   },
   twitter: {
     card: "summary",
-    title: "About — Waleed Alghamdi",
+    title: "About — Waleed Alhamed",
     description: "Builder, strategist, and problem solver.",
   },
 }
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 {/* CV Download */}
                 <a
                   href="/cv.pdf"
-                  download="waleed-alghamdi-cv.pdf"
+                  download="waleed-alhamed-cv.pdf"
                   className="flex items-center gap-3 rounded-lg border border-[var(--term-line)] bg-[var(--term-darker)] px-4 py-3 hover:border-[var(--term-cyan)] hover:bg-[var(--term-cyan)]/5 transition-all group"
                 >
                   <div className="text-sm text-[var(--term-gray)] group-hover:text-[var(--term-cyan)] transition-colors">

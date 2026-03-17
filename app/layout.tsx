@@ -8,8 +8,8 @@ import "./globals.css"
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"),
-  title: "Waleed Alghamdi",
-  description: "A terminal-first personal site and journal by Waleed Alghamdi, covering strategy, systems, and digital transformation.",
+  title: "Waleed Alhamed",
+  description: "A terminal-first personal site and journal by Waleed Alhamed, covering strategy, systems, and digital transformation.",
 }
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-# Waleed Alghamdi — Personal Website
+# Waleed Alhamed — Personal Website
 
 ## Overview
 
@@ -94,7 +94,7 @@ Create a `.md` file in `content/posts/`:
 ---
 title: "Post Title"
 date: "2026-01-15"
-author: "Waleed Alghamdi"
+author: "Waleed Alhamed"
 excerpt: "Brief description"
 coverImage: "/images/blog/cover.jpg"
 tags: ["strategy", "technology"]
@@ -111,7 +111,7 @@ Markdown content here...
 |-------|----------|---------|-------|
 | title | yes | "Untitled" | |
 | date | yes | now | ISO date string |
-| author | no | "Waleed Alghamdi" | |
+| author | no | "Waleed Alhamed" | |
 | excerpt | no | "" | Used in cards and OG tags |
 | coverImage | no | none | Path relative to public/ |
 | tags | no | [] | Array of strings |

@@ -2,7 +2,7 @@
 title: "Number 3, We Need to Talk: My Second Hackathon Experience"
 slug: number3
 date: 2023-12-26
-author: Waleed Alghamdi
+author: Waleed Alhamed
 excerpt: My second hackathon, another 3rd place — with a trio team against 22 competitors.
 coverImage: /images/blog/hackathon2-team.jpeg
 tags:

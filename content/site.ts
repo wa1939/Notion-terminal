@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Waleed Alghamdi",
+  name: "Waleed Alhamed",
   title: "Problem Solver · Product Builder · Strategy to Execution",
   headline: "I build products, lead teams, and turn strategy into execution.",
   bio: [

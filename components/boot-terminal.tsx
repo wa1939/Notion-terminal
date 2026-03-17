@@ -57,7 +57,7 @@ const SKILLS_OUTPUT = [
 ]
 
 const WHOAMI_OUTPUT = [
-  "name:     Waleed Alghamdi",
+  "name:     Waleed Alhamed",
   "handle:   waok",
   "location: Saudi Arabia",
   "focus:    strategy, systems, digital transformation",
