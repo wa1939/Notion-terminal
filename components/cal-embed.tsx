@@ -1,53 +1,11 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
+
+const CAL_URL = "https://app.cal.com/waleedalghamdi/30min?embed&theme=dark&layout=month_view"
 
 export default function CalEmbed() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-
-  useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://app.cal.com/embed/embed.js"
-    script.async = true
-    script.onerror = () => {
-      setLoading(false)
-      setError(true)
-    }
-    script.onload = () => {
-      const win = window as unknown as Record<string, unknown>
-      if (typeof window !== "undefined" && win.Cal) {
-        try {
-          const Cal = win.Cal as (
-            action: string,
-            ...args: unknown[]
-          ) => void
-          Cal("init", { origin: "https://cal.com" })
-          Cal("inline", {
-            calLink: "waleedalghamdi/30min",
-            elementOrSelector: containerRef.current,
-            config: { layout: "month_view", theme: "dark" },
-          })
-          Cal("ui", {
-            theme: "dark",
-            styles: { branding: { brandColor: "#A7B8FF" } },
-            hideEventTypeDetails: false,
-            layout: "month_view",
-          })
-          setLoading(false)
-        } catch {
-          setLoading(false)
-          setError(true)
-        }
-      }
-    }
-    document.head.appendChild(script)
-
-    return () => {
-      script.remove()
-    }
-  }, [])
+  const [loaded, setLoaded] = useState(false)
 
   return (
     <div className="border border-term-line bg-term-darker rounded-lg overflow-hidden">
@@ -57,9 +15,9 @@ export default function CalEmbed() {
         </span>
         <span>book a session</span>
       </div>
-      <div className="relative min-h-[400px]">
-        {loading && !error && (
-          <div className="absolute inset-0 flex items-center justify-center">
+      <div className="relative" style={{ minHeight: 500 }}>
+        {!loaded && (
+          <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="space-y-2 text-center">
               <div className="text-term-gray text-xs uppercase tracking-[0.14em] animate-pulse">
                 loading calendar...
@@ -76,24 +34,14 @@ export default function CalEmbed() {
             </div>
           </div>
         )}
-        {error && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center space-y-3">
-              <div className="text-term-gray text-xs uppercase tracking-[0.14em]">
-                calendar widget unavailable
-              </div>
-              <a
-                href="https://cal.com/waleedalghamdi/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block border border-term-cyan text-term-cyan px-4 py-2 text-sm hover:bg-term-cyan hover:text-term-black transition-colors"
-              >
-                book directly on cal.com
-              </a>
-            </div>
-          </div>
-        )}
-        <div ref={containerRef} className="w-full" style={{ minHeight: 400 }} />
+        <iframe
+          src={CAL_URL}
+          title="Book a session with Waleed Alhamed"
+          className="w-full border-0"
+          style={{ height: 700, minHeight: 500 }}
+          onLoad={() => setLoaded(true)}
+          allow="payment"
+        />
       </div>
       <div className="px-4 py-2 border-t border-term-line text-[10px] text-term-gray">
         prefer email?{" "}
