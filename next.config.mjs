@@ -34,7 +34,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://cal.com https://app.cal.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.vercel-insights.com https://*.vercel-analytics.com https://api.nasa.gov https://giscus.app https://app.cal.com; frame-src https://giscus.app https://cal.com https://app.cal.com; media-src 'self' https://cdn.pixabay.com",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://*.cal.com https://cal.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://*.cal.com; font-src 'self' https://fonts.gstatic.com https://*.cal.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.vercel-insights.com https://*.vercel-analytics.com https://api.nasa.gov https://giscus.app https://*.cal.com; frame-src https://giscus.app https://*.cal.com https://cal.com; media-src 'self' https://cdn.pixabay.com",
           },
         ],
       },
