@@ -3,62 +3,47 @@
 import { useState, useEffect } from "react"
 
 interface TypingAnimationProps {
-  words: string[]
+  content: React.ReactNode[]
   typingSpeed?: number
-  deletingSpeed?: number
-  delayBetweenWords?: number
+  delayStart?: number
+  className?: string
 }
 
 export default function TypingAnimation({
-  words,
-  typingSpeed = 100,
-  deletingSpeed = 50,
-  delayBetweenWords = 2000,
+  content,
+  typingSpeed = 25,
+  delayStart = 1000,
+  className = "",
 }: TypingAnimationProps) {
-  const [text, setText] = useState("")
-  const [wordIndex, setWordIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [isWaiting, setIsWaiting] = useState(false)
+  const [renderedNodes, setRenderedNodes] = useState<React.ReactNode[]>([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [hasStarted, setHasStarted] = useState(false)
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout
+    const timeout = setTimeout(() => {
+      setHasStarted(true)
+    }, delayStart)
+    return () => clearTimeout(timeout)
+  }, [delayStart])
 
-    const currentWord = words[wordIndex]
+  useEffect(() => {
+    if (!hasStarted) return
+    if (currentIndex >= content.length) return
 
-    if (isWaiting) {
-      timeout = setTimeout(() => {
-        setIsWaiting(false)
-        setIsDeleting(true)
-      }, delayBetweenWords)
-      return
-    }
-
-    if (isDeleting) {
-      if (text === "") {
-        setIsDeleting(false)
-        setWordIndex((prev) => (prev + 1) % words.length)
-      } else {
-        timeout = setTimeout(() => {
-          setText(text.slice(0, -1))
-        }, deletingSpeed)
-      }
-    } else {
-      if (text === currentWord) {
-        setIsWaiting(true)
-      } else {
-        timeout = setTimeout(() => {
-          setText(currentWord.slice(0, text.length + 1))
-        }, typingSpeed)
-      }
-    }
+    const timeout = setTimeout(() => {
+      setRenderedNodes(prev => [...prev, content[currentIndex]])
+      setCurrentIndex(prev => prev + 1)
+    }, typingSpeed)
 
     return () => clearTimeout(timeout)
-  }, [text, wordIndex, isDeleting, isWaiting, words, typingSpeed, deletingSpeed, delayBetweenWords])
+  }, [currentIndex, hasStarted, content, typingSpeed])
 
   return (
-    <div className="inline-flex items-center">
-      <span className="text-term-cyan">{text}</span>
-      <span className="inline-block w-2 h-5 bg-term-cyan ml-1 animate-blink"></span>
+    <div className={className}>
+      {renderedNodes}
+      {currentIndex < content.length && (
+        <span className="inline-block w-[0.6em] h-[1.2rem] bg-term-white ml-1 align-middle animate-blink"></span>
+      )}
     </div>
   )
 }

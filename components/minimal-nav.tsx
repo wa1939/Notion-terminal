@@ -3,92 +3,105 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion } from "framer-motion"
-import { Home, User, FileText, Mail } from "lucide-react"
+import ThemePicker from "@/components/theme-picker"
+
+const navItems = [
+  { path: "/", number: "01", label: "home", command: "cd ~" },
+  { path: "/blog", number: "02", label: "journal", command: "ls posts/" },
+  { path: "/about", number: "03", label: "about", command: "cat resume.md" },
+  { path: "/contact", number: "04", label: "contact", command: "ping me" },
+] as const
 
 export default function MinimalNav() {
-  const [isHovered, setIsHovered] = useState(false)
   const pathname = usePathname()
-
-  const navItems = [
-    { path: "/", label: "cd ~", icon: Home, text: "Home" },
-    { path: "/about", label: "cat about.txt", icon: User, text: "About" },
-    { path: "/blog", label: "ls posts/", icon: FileText, text: "Blog" },
-    { path: "/contact", label: "ping me", icon: Mail, text: "Contact" },
-  ]
+  const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 font-mono bg-term-black/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 py-4">
-        <div
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {/* Background line that appears on hover */}
-          <motion.div
-            className="absolute inset-0 bg-term-dark"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.2 }}
-          />
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-term-line bg-term-black/95 backdrop-blur-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between gap-4 py-4 text-sm">
+          <Link href="/" className="min-w-0 text-term-white transition-colors hover:text-term-cyan group">
+            <pre className="text-[8px] leading-[1.1] text-term-cyan group-hover:text-term-white transition-colors font-mono select-none" aria-hidden="true">{`█╗ ╔█╗ ╔═╗\n██╗██║ ╠═╣\n╚═╝╚╝ ╩ ╩`}</pre>
+            <span className="block text-[9px] uppercase tracking-[0.3em] text-term-gray mt-0.5">portfolio</span>
+          </Link>
 
-          {/* Nav items */}
-          <div className="relative z-10 flex items-center justify-between">
-            <div className="flex items-center space-x-6">
-              {navItems.map((item) => (
+          <div className="hidden items-center gap-5 md:flex">
+            {navItems.map((item) => {
+              const active = item.path === "/" ? pathname === "/" : pathname === item.path || pathname.startsWith(`${item.path}/`)
+
+              return (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`
-                    py-2 transition-colors duration-200 group flex items-center
-                    ${pathname === item.path ? "text-term-cyan" : "text-term-gray hover:text-term-white"}
-                  `}
+                  className={`transition-colors ${active ? "text-term-white" : "text-term-gray hover:text-term-cyan"}`}
                 >
-                  <span className="hidden md:inline">
-                    <span className="text-term-green">$</span> {item.label}
-                  </span>
-                  <span className="md:hidden flex items-center">
-                    <item.icon className="w-5 h-5 mr-1" />
-                  </span>
-
-                  {/* User-friendly tooltip that appears on hover */}
-                  <span className="ml-2 text-xs bg-term-dark px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity absolute left-0 top-full">
-                    {item.text}
-                  </span>
+                  <span className="block text-[11px] uppercase tracking-[0.2em] text-term-gray">({item.number}) {item.command}</span>
+                  <span className="block text-sm">{item.label}</span>
                 </Link>
-              ))}
-            </div>
+              )
+            })}
+          </div>
 
-            {/* Simple text navigation for non-technical users */}
-            <div className="hidden sm:flex items-center space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={`
-                    px-3 py-1 rounded transition-colors duration-200 flex items-center
-                    ${
-                      pathname === item.path
-                        ? "bg-term-cyan/10 text-term-cyan border border-term-cyan/30"
-                        : "text-term-gray hover:text-term-white hover:bg-term-dark/50"
-                    }
-                  `}
-                >
-                  <item.icon className="w-4 h-4 mr-2" />
-                  {item.text}
-                </Link>
-              ))}
+          <div className="flex items-center gap-6">
+            <ThemePicker />
+            <div className="hidden lg:flex items-center gap-4 text-xs tracking-[0.16em] text-term-gray uppercase">
+              <a href="https://github.com/wa1939" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
+                <span className="text-term-white font-bold">&lt;/&gt;</span> github
+              </a>
+              <a href="https://www.linkedin.com/in/waleedalghamdi/" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
+                <span className="text-term-white font-bold">[in]</span> linkedin
+              </a>
+              <a href="mailto:waok@outlook.sa" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
+                <span className="text-term-white font-bold">@</span> email
+              </a>
             </div>
           </div>
 
-          {/* Scan line effect */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="w-full h-px bg-term-cyan/20 animate-scan" />
-          </div>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="inline-flex items-center justify-center border border-term-line px-4 py-3 min-w-[44px] min-h-[44px] text-term-white lg:hidden"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
+            {open ? "[X]" : "[=]"}
+          </button>
         </div>
+
+        {open && (
+          <div id="mobile-nav" className="border-t border-term-line py-3 lg:hidden">
+            <div className="grid gap-3">
+              {navItems.map((item) => {
+                const active = item.path === "/" ? pathname === "/" : pathname === item.path || pathname.startsWith(`${item.path}/`)
+
+                return (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    onClick={() => setOpen(false)}
+                    className={`border border-term-line px-4 py-4 min-h-[48px] ${active ? "bg-term-dark text-term-white" : "text-term-gray hover:text-term-cyan"}`}
+                  >
+                    <span className="block text-[11px] uppercase tracking-[0.2em] text-term-gray">({item.number}) {item.command}</span>
+                    <span className="mt-1 block text-sm">{item.label}</span>
+                  </Link>
+                )
+              })}
+              <div className="flex items-center gap-4 px-4 py-2 text-xs tracking-[0.16em] text-term-gray uppercase">
+                <a href="https://github.com/wa1939" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1.5">
+                  <span className="text-term-white font-bold">&lt;/&gt;</span> github
+                </a>
+                <a href="https://www.linkedin.com/in/waleedalghamdi/" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1.5">
+                  <span className="text-term-white font-bold">[in]</span> linkedin
+                </a>
+                <a href="mailto:waok@outlook.sa" className="hover:text-term-cyan flex items-center gap-1.5">
+                  <span className="text-term-white font-bold">@</span> email
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )
 }
-

@@ -115,6 +115,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const Image: React.FC<ImageProps> = ({ src, alt, caption, className, ...props }) => {
   return (
     <figure className={`my-6 ${className || ""}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element -- Notion image URLs are dynamic and may be external/unoptimized */}
       <img
         src={src || "/placeholder.svg"}
         alt={alt || ""}
@@ -166,7 +167,7 @@ export const OrderedList: React.FC<OrderedListProps> = ({ children, number, clas
 }
 
 // Toggle component
-interface ToggleProps extends React.HTMLAttributes<HTMLDetailsElement> {
+interface ToggleProps extends Omit<React.HTMLAttributes<HTMLDetailsElement>, "title"> {
   title: React.ReactNode
 }
 
