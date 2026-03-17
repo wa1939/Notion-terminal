@@ -9,7 +9,9 @@ language: ar
 slug: review-2025
 status: published
 tags:
-  - notion
+  - Yearly-review
+  - self-feedback
+  - End-of-the-year
 title: "كشف حساب 2025: محاولة للفهم لا للاستعراض"
 ---
 

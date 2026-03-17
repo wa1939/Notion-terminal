@@ -1,13 +1,16 @@
 ---
+author: Waleed Alghamdi
+coverImage: /images/blog/hackathon-team.jpg
+date: 2023-12-20
+date_created: 2026-03-17
+date_modified: 2026-03-17
+excerpt: I jumped into my first hackathon without knowing what it even was — and walked out with 3rd place.
+language: en
+slug: hackathon
+status: published
+tags:
+  - hackathon
 title: "Crazy Week, Big Win: My Hackathon Story"
-slug: "hackathon"
-date: "2023-12-20"
-author: "Waleed Alghamdi"
-excerpt: "I jumped into my first hackathon without knowing what it even was — and walked out with 3rd place."
-coverImage: "/images/blog/hackathon-team.jpg"
-tags: ["other"]
-language: "en"
-status: "published"
 ---
 
 ## Hello again!

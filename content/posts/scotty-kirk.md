@@ -1,15 +1,17 @@
 ---
-title: "The Scotty and Kirk Approach to Workplace Dynamics"
-slug: "scotty-kirk"
-date: "2023-12-26"
-author: "Waleed Alghamdi"
-excerpt: "Know when to be focused and tough like Scotty, and when to switch to being friendly and caring like Kirk."
-coverImage: ""
-tags: ["tip"]
-language: "en"
-status: "published"
+author: Waleed Alghamdi
+coverImage: /images/blog/captain-kirk-and-mr-scotty-star-trek.jpg
+date: 2023-12-26
+date_created: 2026-03-17
+date_modified: 2026-03-17
+excerpt: Know when to be focused and tough like Scotty, and when to switch to being friendly and caring like Kirk.
+language: en
+slug: scotty-kirk
+status: published
+tags:
+  - tip
+title: The Scotty and Kirk Approach to Workplace Dynamics
 ---
-
 ## Hey everyone! So, I heard a quote that really got me thinking. It goes like this:
 
 > "You can be ornery when you're Scotty, but not when you're Kirk."

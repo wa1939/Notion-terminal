@@ -1,13 +1,14 @@
 ---
 title: "Study Time Distractions: My Journey Building a Website While Prepping for the PMP Exam"
-slug: "my-journey"
-date: "2024-01-27"
-author: "Waleed Alghamdi"
-excerpt: "When you need to study, suddenly everything else seems super interesting — like building your own website from scratch."
-coverImage: "/images/blog/pmp-distraction.jpeg"
-tags: ["notion"]
-language: "en"
-status: "published"
+slug: my-journey
+date: 2024-01-27
+author: Waleed Alghamdi
+excerpt: When you need to study, suddenly everything else seems super interesting — like building your own website from scratch.
+coverImage: /images/blog/pmp-distraction.jpeg
+tags:
+  - Journey
+language: en
+status: published
 ---
 
 Hey everyone! Lately, I've been swamped -- work, daily life, and yep, I've got a PMP exam on March 10th. You know how it goes, right? When you need to study, suddenly everything else seems super interesting. So, I had this idea: why keep my blog on super.so, when I could try making my own website? I stumbled upon this thing called [Next.js Notion Starter Kit on GitHub](https://github.com/transitive-bullshit/nextjs-notion-starter-kit#nextjs-notion-starter-kit).
