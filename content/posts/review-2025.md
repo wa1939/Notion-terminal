@@ -1,5 +1,5 @@
 ---
-author: Waleed Alhamed
+author: Waleed Alghamdi
 coverImage: /images/blog/1768163843160.png
 date: 2025-01-11
 date_created: 2026-03-17
