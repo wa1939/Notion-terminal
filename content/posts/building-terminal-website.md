@@ -732,7 +732,7 @@ content/
 
 ---
 
-The site is live at [waleedalghamdi.com](https://waleedalghamdi.com).
+The site is live at [walhamed.com](https://walhamed.com).
 
 Open the terminal. Type `snake`. Play a round. Then type `stars` and look up. Type `theme` and try Matrix. Then `map` and find Riyadh glowing green.
 
