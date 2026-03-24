@@ -5,24 +5,19 @@ import { siteConfig } from "@/content/site"
 
 const TRACKS = [
   {
-    title: "Chill Abstract",
-    artist: "Lo-Fi Chill",
-    src: "https://cdn.pixabay.com/audio/2024/11/01/audio_7a3ca6db8f.mp3",
-  },
-  {
     title: "Good Night",
     artist: "FASSounds",
-    src: "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3",
+    src: "/audio/good-night.mp3",
   },
   {
     title: "Lofi Study",
     artist: "FASSounds",
-    src: "https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3",
+    src: "/audio/lofi-study.mp3",
   },
   {
-    title: "Abstract Future Bass",
-    artist: "QubeSounds",
-    src: "https://cdn.pixabay.com/audio/2023/07/30/audio_e50553e00d.mp3",
+    title: "Chill Vibes",
+    artist: "Lo-Fi Chill",
+    src: "/audio/chill-vibes.mp3",
   },
 ]
 
@@ -133,12 +128,14 @@ export default function SpotifyWidget() {
     const onPlay = () => setPlaying(true)
     const onPause = () => setPlaying(false)
     const onEnded = () => setTrackIdx((i) => (i + 1) % TRACKS.length)
+    const onError = () => setTrackIdx((i) => (i + 1) % TRACKS.length)
 
     audio.addEventListener("timeupdate", onTimeUpdate)
     audio.addEventListener("loadedmetadata", onLoadedMetadata)
     audio.addEventListener("play", onPlay)
     audio.addEventListener("pause", onPause)
     audio.addEventListener("ended", onEnded)
+    audio.addEventListener("error", onError)
 
     return () => {
       audio.removeEventListener("timeupdate", onTimeUpdate)
@@ -146,6 +143,7 @@ export default function SpotifyWidget() {
       audio.removeEventListener("play", onPlay)
       audio.removeEventListener("pause", onPause)
       audio.removeEventListener("ended", onEnded)
+      audio.removeEventListener("error", onError)
     }
   }, [])
 
