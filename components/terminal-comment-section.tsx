@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes"
 import dynamic from "next/dynamic"
 import { AlertTriangle, MessageSquare } from "lucide-react"
+import { siteConfig } from "@/content/site"
 
 const Giscus = dynamic(() => import("@giscus/react"), {
   ssr: false,
@@ -56,8 +57,8 @@ export default function TerminalCommentSection() {
             <AlertTriangle className="mt-1 h-4 w-4 shrink-0 text-term-cyan" />
             <p>
               Comments are offline until Giscus is configured. You can still send feedback directly at{" "}
-              <a href="mailto:waok@outlook.sa" className="cli-link">
-                waok@outlook.sa
+              <a href={`mailto:${siteConfig.email}`} className="cli-link">
+                {siteConfig.email}
               </a>
               .
             </p>

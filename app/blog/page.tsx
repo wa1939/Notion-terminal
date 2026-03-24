@@ -5,22 +5,22 @@ import SearchPosts from "@/components/search-posts"
 import TerminalFooter from "@/components/terminal-footer"
 import { getAllPosts } from "@/lib/posts"
 import JournalClient from "@/components/journal-client"
+import { siteConfig } from "@/content/site"
 
 export const metadata: Metadata = {
-  title: "Journal — Waleed Alhamed",
-  description:
-    "Thoughts on strategy, technology, digital transformation, and the craft of making complicated things feel clear.",
+  title: `Journal — ${siteConfig.name}`,
+  description: `${siteConfig.name}'s journal on strategy, technology, and digital transformation.`,
   openGraph: {
-    title: "Journal — Waleed Alhamed",
-    description: "Thoughts on strategy, technology, and digital transformation.",
-    url: "https://waleedalghamdi.com/blog",
-    siteName: "Waleed Alhamed",
+    title: `Journal — ${siteConfig.name}`,
+    description: `${siteConfig.name}'s journal on strategy, technology, and digital transformation.`,
+    url: `${siteConfig.siteUrl}/blog`,
+    siteName: siteConfig.name,
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Journal — Waleed Alhamed",
-    description: "Thoughts on strategy, technology, and digital transformation.",
+    title: `Journal — ${siteConfig.name}`,
+    description: `${siteConfig.name}'s journal on strategy, technology, and digital transformation.`,
   },
 }
 

@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import GithubSlugger from "github-slugger"
+import { siteConfig } from "@/content/site"
 
 export interface PostHeading {
   text: string
@@ -84,7 +85,7 @@ function parsePost(filePath: string): ParsedPost {
     title: data.title || "Untitled",
     slug,
     date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
-    author: data.author || "Waleed Alhamed",
+    author: data.author || siteConfig.name,
     excerpt: data.excerpt || "",
     content,
     coverImage: data.coverImage || undefined,

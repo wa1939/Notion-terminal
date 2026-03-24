@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
+import { siteConfig } from "@/content/site"
 
 const TRACKS = [
   {
@@ -170,7 +171,7 @@ export default function SpotifyWidget() {
 
         <div className="pt-1 border-t border-term-line">
           <a
-            href="https://open.spotify.com/user/waloood"
+            href={siteConfig.spotifyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[10px] text-term-gray hover:text-term-cyan transition-colors"

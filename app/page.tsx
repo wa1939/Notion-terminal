@@ -10,23 +10,23 @@ import HalftoneImage from "@/components/halftone-image"
 import SpotifyWidget from "@/components/spotify-widget"
 import ApodWidget from "@/components/apod-widget"
 import AnimateOnScroll from "@/components/animate-on-scroll"
+import { siteConfig } from "@/content/site"
 
 export const metadata: Metadata = {
-  title: "Waleed Alhamed — Problem Solver · Product Builder · Strategy to Execution",
-  description:
-    "I build products, lead teams, and turn strategy into execution. Consultant, builder, and AI product maker based in Saudi Arabia.",
+  title: `${siteConfig.name} — ${siteConfig.title}`,
+  description: siteConfig.description,
   openGraph: {
-    title: "Waleed Alhamed",
-    description: "Problem Solver · Product Builder · Strategy to Execution",
-    url: "https://waleedalghamdi.com",
-    siteName: "Waleed Alhamed",
+    title: siteConfig.name,
+    description: siteConfig.title,
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.name,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Waleed Alhamed",
-    description: "Problem Solver · Product Builder · Strategy to Execution",
-    creator: "@walalhamed",
+    title: siteConfig.name,
+    description: siteConfig.title,
+    creator: siteConfig.twitterHandle,
   },
 }
 
@@ -44,15 +44,14 @@ export default async function Home() {
             {/* ── Top Bar ───────────────────────────────────────── */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-term-line px-4 py-3 text-xs uppercase tracking-[0.16em] text-term-gray">
               <div>
-                <span className="text-term-green">waok</span> on <LiveClock />
+                <span className="text-term-green">{siteConfig.handle}</span> on <LiveClock />
               </div>
               <div className="flex flex-wrap items-center gap-4">
-                <a href="https://github.com/wa1939" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1">
-                  <span className="text-term-white font-bold">&lt;/&gt;</span> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/waleedalghamdi/" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1">
-                  <span className="text-term-white font-bold">[in]</span> LinkedIn
-                </a>
+                {Object.values(siteConfig.socials).map((social) => (
+                  <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1">
+                    <span className="text-term-white font-bold">{social.icon}</span> {social.label}
+                  </a>
+                ))}
                 <Link href="/about" className="hover:text-term-cyan">
                   How I work
                 </Link>
@@ -73,7 +72,7 @@ export default async function Home() {
                     <div className="relative aspect-[5/4] border-b border-term-line overflow-hidden">
                       <HalftoneImage
                         src="/profile.jpg"
-                        alt="Waleed Alhamed"
+                        alt={siteConfig.name}
                       />
                     </div>
                     <div className="p-3 text-xs uppercase tracking-[0.14em] text-term-gray bg-term-black">

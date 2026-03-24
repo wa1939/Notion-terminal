@@ -1,7 +1,14 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
+  "name": "terminal-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "A terminal/CLI-themed personal portfolio and blog built with Next.js 15, React 19, and Tailwind CSS.",
+  "author": "Waleed Alhamed <waok@outlook.sa>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wa1939/Notion-terminal"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

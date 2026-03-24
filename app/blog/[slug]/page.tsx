@@ -13,6 +13,7 @@ import NewsletterSignup from "@/components/newsletter-signup"
 import PostEngagement from "@/components/post-engagement"
 import { formatPostDate } from "@/lib/format-post-date"
 import { getPostBySlug, getAllPosts } from "@/lib/posts"
+import { siteConfig } from "@/content/site"
 
 export async function generateMetadata({
   params,
@@ -23,11 +24,11 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug)
   if (!post) return { title: "Post Not Found" }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.siteUrl
 
   return {
-    title: `${post.title} — Waleed Alhamed`,
-    description: post.excerpt || `Read ${post.title} on Waleed Alhamed's journal.`,
+    title: `${post.title} — ${siteConfig.name}`,
+    description: post.excerpt || `Read ${post.title} on ${siteConfig.name}'s journal.`,
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -36,14 +37,14 @@ export async function generateMetadata({
       authors: [post.author],
       tags: post.tags,
       url: `${siteUrl}/blog/${post.slug}`,
-      siteName: "Waleed Alhamed",
+      siteName: siteConfig.name,
       ...(post.coverImage ? { images: [{ url: post.coverImage }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      creator: "@walalhamed",
+      creator: siteConfig.twitterHandle,
     },
   }
 }

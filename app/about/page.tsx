@@ -7,31 +7,21 @@ import AnimateOnScroll from "@/components/animate-on-scroll"
 import { siteConfig } from "@/content/site"
 
 export const metadata: Metadata = {
-  title: "About — Waleed Alhamed",
-  description:
-    "Builder, strategist, and problem solver. Leading culture & employee experience at Elm Company. MBA candidate at UIUC Gies.",
+  title: `About — ${siteConfig.name}`,
+  description: siteConfig.description,
   openGraph: {
-    title: "About — Waleed Alhamed",
-    description: "Builder, strategist, and problem solver.",
-    url: "https://waleedalghamdi.com/about",
-    siteName: "Waleed Alhamed",
+    title: `About — ${siteConfig.name}`,
+    description: siteConfig.title,
+    url: `${siteConfig.siteUrl}/about`,
+    siteName: siteConfig.name,
     type: "profile",
   },
   twitter: {
     card: "summary",
-    title: "About — Waleed Alhamed",
-    description: "Builder, strategist, and problem solver.",
+    title: `About — ${siteConfig.name}`,
+    description: siteConfig.title,
   },
 }
-
-const WALEED_ART = [
-  "██╗    ██╗  █████╗  ██╗     ███████╗███████╗██████╗ ",
-  "██║    ██║ ██╔══██╗ ██║     ██╔════╝██╔════╝██╔══██╗",
-  "██║ █╗ ██║ ███████║ ██║     █████╗  █████╗  ██║  ██║",
-  "██║███╗██║ ██╔══██║ ██║     ██╔══╝  ██╔══╝  ██║  ██║",
-  "╚███╔███╔╝ ██║  ██║ ███████╗███████╗███████╗██████╔╝",
-  " ╚══╝╚══╝  ╚═╝  ╚═╝ ╚══════╝╚══════╝╚══════╝╚═════╝ ",
-]
 
 export default function AboutPage() {
   return (
@@ -48,7 +38,7 @@ export default function AboutPage() {
           {/* ASCII Name Header */}
           <div className="mb-8">
             <pre className="text-[var(--term-cyan)] text-[clamp(0.35rem,1vw,0.65rem)] leading-[1.15] whitespace-pre overflow-x-auto select-none">
-              {WALEED_ART.join("\n")}
+              {siteConfig.asciiArt.about.join("\n")}
             </pre>
             <div className="text-xs uppercase tracking-[0.3em] text-[var(--term-gray)] mt-2">
               {siteConfig.title.toLowerCase()}

@@ -1,9 +1,10 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
+import { siteConfig } from "@/content/site"
 
 const CITIES: [number, number, string, boolean][] = [
-  [24.7136, 46.6753, "Riyadh", true],
+  [siteConfig.coordinates.lat, siteConfig.coordinates.lon, siteConfig.coordinates.label, true],
   [35.6762, 139.6503, "Tokyo", false],
   [51.5074, -0.1278, "London", false],
   [40.7128, -74.006, "New York", false],

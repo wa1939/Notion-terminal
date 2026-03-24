@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import ThemePicker from "@/components/theme-picker"
+import { siteConfig } from "@/content/site"
 
 const navItems = [
   { path: "/", number: "01", label: "home", command: "cd ~" },
@@ -45,13 +46,12 @@ export default function MinimalNav() {
           <div className="flex items-center gap-6">
             <ThemePicker />
             <div className="hidden lg:flex items-center gap-4 text-xs tracking-[0.16em] text-term-gray uppercase">
-              <a href="https://github.com/wa1939" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
-                <span className="text-term-white font-bold">&lt;/&gt;</span> github
-              </a>
-              <a href="https://www.linkedin.com/in/waleedalghamdi/" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
-                <span className="text-term-white font-bold">[in]</span> linkedin
-              </a>
-              <a href="mailto:waok@outlook.sa" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
+              {Object.values(siteConfig.socials).map((social) => (
+                <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
+                  <span className="text-term-white font-bold">{social.icon}</span> {social.label.toLowerCase()}
+                </a>
+              ))}
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-term-cyan focus:text-term-cyan outline-none transition-colors flex items-center gap-1.5">
                 <span className="text-term-white font-bold">@</span> email
               </a>
             </div>
@@ -88,13 +88,12 @@ export default function MinimalNav() {
                 )
               })}
               <div className="flex items-center gap-4 px-4 py-2 text-xs tracking-[0.16em] text-term-gray uppercase">
-                <a href="https://github.com/wa1939" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1.5">
-                  <span className="text-term-white font-bold">&lt;/&gt;</span> github
-                </a>
-                <a href="https://www.linkedin.com/in/waleedalghamdi/" target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1.5">
-                  <span className="text-term-white font-bold">[in]</span> linkedin
-                </a>
-                <a href="mailto:waok@outlook.sa" className="hover:text-term-cyan flex items-center gap-1.5">
+                {Object.values(siteConfig.socials).map((social) => (
+                  <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-term-cyan flex items-center gap-1.5">
+                    <span className="text-term-white font-bold">{social.icon}</span> {social.label.toLowerCase()}
+                  </a>
+                ))}
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-term-cyan flex items-center gap-1.5">
                   <span className="text-term-white font-bold">@</span> email
                 </a>
               </div>

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
 import crypto from "crypto"
+import { siteConfig } from "@/content/site"
 
 function getResend() {
   const apiKey = process.env.RESEND_API_KEY
@@ -18,8 +19,9 @@ function escapeHtml(str: string): string {
 }
 
 function constantTimeEqual(a: string, b: string): boolean {
-  if (a.length !== b.length) return false
-  return crypto.timingSafeEqual(Buffer.from(a), Buffer.from(b))
+  const hashA = crypto.createHmac("sha256", "compare").update(a).digest()
+  const hashB = crypto.createHmac("sha256", "compare").update(b).digest()
+  return crypto.timingSafeEqual(hashA, hashB)
 }
 
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
@@ -83,7 +85,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "No subscribers to notify" })
     }
 
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.siteUrl
     const postUrl = `${siteUrl}/blog/${slug}`
     const safeTitle = escapeHtml(title)
     const safeExcerpt = excerpt ? escapeHtml(excerpt) : ""
@@ -99,7 +101,7 @@ export async function POST(request: Request) {
 &#x2588;&#x2557; &#x2554;&#x2588;&#x2557; &#x2554;&#x2550;&#x2557;
 &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551; &#x2560;&#x2550;&#x2563;
 &#x255A;&#x2550;&#x255D;&#x255A;&#x255D; &#x2569; &#x2569;</pre>
-      <div style="color:#918A80;font-size:10px;text-transform:uppercase;letter-spacing:0.3em;margin-top:8px;">waleed alhamed</div>
+      <div style="color:#918A80;font-size:10px;text-transform:uppercase;letter-spacing:0.3em;margin-top:8px;">${escapeHtml(siteConfig.name.toLowerCase())}</div>
     </div>
     <div style="border:1px solid #2A2A31;border-radius:12px;overflow:hidden;">
       <div style="padding:12px 16px;border-bottom:1px solid #2A2A31;font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#918A80;">
@@ -132,7 +134,7 @@ export async function POST(request: Request) {
       const batch = emails.slice(i, i + batchSize)
       await resend.batch.send(
         batch.map((email) => ({
-          from: process.env.RESEND_FROM_EMAIL || "Waleed <noreply@walhamed.com>",
+          from: process.env.RESEND_FROM_EMAIL || `${siteConfig.name} <noreply@${new URL(siteConfig.siteUrl).hostname}>`,
           to: email,
           subject: `New Post: ${safeTitle}`,
           html,
@@ -143,7 +145,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: `Notified ${sent} subscribers` })
   } catch (error) {
-    console.error("Notify error:", error)
+    console.error("Notify error:", error instanceof Error ? error.message : "Unknown error")
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

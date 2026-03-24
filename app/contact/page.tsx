@@ -5,22 +5,22 @@ import MinimalNav from "@/components/minimal-nav"
 import TerminalFooter from "@/components/terminal-footer"
 import CalEmbed from "@/components/cal-embed"
 import NewsletterSignup from "@/components/newsletter-signup"
+import { siteConfig } from "@/content/site"
 
 export const metadata: Metadata = {
-  title: "Contact — Waleed Alhamed",
-  description:
-    "Get in touch for transformation, product building, or advisory engagements. Book a 30-minute session or send an email.",
+  title: `Contact — ${siteConfig.name}`,
+  description: `Get in touch with ${siteConfig.name}. Book a 30-minute session or send an email.`,
   openGraph: {
-    title: "Contact — Waleed Alhamed",
-    description: "Get in touch for transformation, product building, or advisory engagements.",
-    url: "https://waleedalghamdi.com/contact",
-    siteName: "Waleed Alhamed",
+    title: `Contact — ${siteConfig.name}`,
+    description: `Get in touch with ${siteConfig.name}.`,
+    url: `${siteConfig.siteUrl}/contact`,
+    siteName: siteConfig.name,
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Contact — Waleed Alhamed",
-    description: "Get in touch for transformation, product building, or advisory engagements.",
+    title: `Contact — ${siteConfig.name}`,
+    description: `Get in touch with ${siteConfig.name}.`,
   },
 }
 
@@ -62,8 +62,8 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-0 text-sm">
                     {[
-                      ["email", "waok@outlook.sa"],
-                      ["location", "Saudi Arabia"],
+                      ["email", siteConfig.email],
+                      ["location", siteConfig.location],
                       ["availability", "select strategy, transformation, and product collaborations"],
                     ].map(([label, value]) => (
                       <div key={label} className="cli-table-row grid gap-3 px-4 py-4 md:grid-cols-[120px_minmax(0,1fr)]">
@@ -101,7 +101,7 @@ export default function ContactPage() {
                   <div className="cli-topline">quick links</div>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a
-                      href="https://cal.com/waleedalghamdi/30min"
+                      href={siteConfig.calUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 border border-term-white bg-term-white px-4 py-3 text-sm text-term-black transition-colors hover:bg-term-cyan hover:border-term-cyan hover:text-term-black font-semibold"
@@ -109,7 +109,7 @@ export default function ContactPage() {
                       book a 30-minute session
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
-                    <a href="mailto:waok@outlook.sa" className="inline-flex items-center gap-2 border border-term-line px-4 py-3 text-sm text-term-white transition-colors hover:bg-term-white hover:text-term-black hover:border-term-white">
+                    <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 border border-term-line px-4 py-3 text-sm text-term-white transition-colors hover:bg-term-white hover:text-term-black hover:border-term-white">
                       email instead
                     </a>
                   </div>

@@ -9,16 +9,7 @@ import WorldMap from "@/components/world-map"
 import SnakeGame from "@/components/snake-game"
 import Pokedex from "@/components/pokedex"
 import TerminalDashboard from "@/components/terminal-dashboard"
-
-// ── Massive ASCII Art ──────────────────────────────────────────────
-const WAOK_ART = [
-  "██╗    ██╗  █████╗   ██████╗  ██╗  ██╗",
-  "██║    ██║ ██╔══██╗ ██╔═══██╗ ██║ ██╔╝",
-  "██║ █╗ ██║ ███████║ ██║   ██║ █████╔╝ ",
-  "██║███╗██║ ██╔══██║ ██║   ██║ ██╔═██╗ ",
-  "╚███╔███╔╝ ██║  ██║ ╚██████╔╝ ██║  ██╗",
-  " ╚══╝╚══╝  ╚═╝  ╚═╝  ╚═════╝  ╚═╝  ╚═╝",
-]
+import { siteConfig } from "@/content/site"
 
 // ── Boot Lines ─────────────────────────────────────────────────────
 const BOOT_LINES = [
@@ -50,18 +41,14 @@ const COMMANDS: { cmd: string; desc: string; action: string; icon: string }[] = 
   { cmd: "clear", desc: "clear terminal", action: "clear", icon: "🧹" },
 ]
 
-const SKILLS_OUTPUT = [
-  "change management  // project leadership  // product thinking",
-  "python             // ai integration      // dashboards",
-  "customer-centered  // problem solving     // systems design",
-]
+const SKILLS_OUTPUT = siteConfig.terminalSkills
 
 const WHOAMI_OUTPUT = [
-  "name:     Waleed Alhamed",
-  "handle:   waok",
-  "location: Saudi Arabia",
-  "focus:    strategy, systems, digital transformation",
-  "status:   building things that matter",
+  `name:     ${siteConfig.name}`,
+  `handle:   ${siteConfig.handle}`,
+  `location: ${siteConfig.location}`,
+  `focus:    ${siteConfig.whoami.focus}`,
+  `status:   ${siteConfig.whoami.status}`,
 ]
 
 const COLOR_MAP: Record<string, string> = {
@@ -418,7 +405,7 @@ export default function BootTerminal() {
             <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
             <span className="w-3 h-3 rounded-full bg-[#27C93F]" />
           </div>
-          <span className="ml-2">root@waok:~</span>
+          <span className="ml-2">{siteConfig.terminalPrompt}</span>
         </div>
         <span>/bin/sh</span>
       </div>
@@ -439,10 +426,10 @@ export default function BootTerminal() {
         {bootDone && (
           <>
             <pre className="text-term-cyan text-[clamp(0.45rem,1.15vw,0.75rem)] leading-[1.15] my-3 whitespace-pre overflow-x-auto">
-              {WAOK_ART.join("\n")}
+              {siteConfig.asciiArt.home.join("\n")}
             </pre>
             <div className="text-xs uppercase tracking-[0.2em] text-term-gray mb-3">
-              strategy · systems · journal
+              {siteConfig.tagline}
             </div>
             <div className="text-term-gray text-xs mb-1">
               type{" "}

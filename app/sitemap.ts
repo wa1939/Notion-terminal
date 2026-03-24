@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next"
 import { getAllPosts } from "@/lib/posts"
+import { siteConfig } from "@/content/site"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"
+    process.env.NEXT_PUBLIC_SITE_URL || siteConfig.siteUrl
   const posts = await getAllPosts()
 
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({

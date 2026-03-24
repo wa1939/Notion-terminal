@@ -31,12 +31,12 @@ export async function POST(request: Request) {
 
     const { email } = await request.json()
 
-    if (!email || typeof email !== "string") {
+    if (!email || typeof email !== "string" || email.length > 254) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 })
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(email.trim())) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 })
     }
 

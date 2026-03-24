@@ -1,17 +1,19 @@
 "use client"
 
 import { useState } from "react"
-
-const CAL_URL = "https://cal.com/walhamed/30min?embed&theme=dark&layout=month_view"
+import { siteConfig } from "@/content/site"
 
 export default function CalEmbed() {
   const [loaded, setLoaded] = useState(false)
+
+  // Extract display path from calUrl (e.g. "cal.com/walhamed")
+  const calDisplay = siteConfig.calUrl.replace(/^https?:\/\//, "").replace(/\/\d+min$/, "")
 
   return (
     <div className="border border-term-line bg-term-darker rounded-lg overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 border-b border-term-line text-xs uppercase tracking-[0.14em] text-term-gray">
         <span>
-          <span className="text-term-cyan">$</span> cal.com/walhamed
+          <span className="text-term-cyan">$</span> {calDisplay}
         </span>
         <span>book a session</span>
       </div>
@@ -35,8 +37,8 @@ export default function CalEmbed() {
           </div>
         )}
         <iframe
-          src={CAL_URL}
-          title="Book a session with Waleed Alhamed"
+          src={siteConfig.calEmbedUrl}
+          title={`Book a session with ${siteConfig.name}`}
           className="w-full border-0"
           style={{ height: 700, minHeight: 500 }}
           onLoad={() => setLoaded(true)}
@@ -45,8 +47,8 @@ export default function CalEmbed() {
       </div>
       <div className="px-4 py-2 border-t border-term-line text-[10px] text-term-gray">
         prefer email?{" "}
-        <a href="mailto:waok@outlook.sa" className="text-term-cyan hover:underline">
-          waok@outlook.sa
+        <a href={`mailto:${siteConfig.email}`} className="text-term-cyan hover:underline">
+          {siteConfig.email}
         </a>
       </div>
     </div>

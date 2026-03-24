@@ -4,12 +4,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import StarField from "@/components/star-field"
 import { readingSerif, readingArabic, uiMono } from "@/app/fonts"
+import { siteConfig } from "@/content/site"
 import "./globals.css"
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://waleedalghamdi.com"),
-  title: "Waleed Alhamed",
-  description: "A terminal-first personal site and journal by Waleed Alhamed, covering strategy, systems, and digital transformation.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || siteConfig.siteUrl),
+  title: siteConfig.name,
+  description: siteConfig.description,
 }
 
 export default function RootLayout({

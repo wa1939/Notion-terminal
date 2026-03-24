@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from "react"
+import { siteConfig } from "@/content/site"
 
 const CONSTELLATIONS = [
   {
@@ -431,7 +432,7 @@ export default function StarMap({ onClose }: StarMapProps) {
     const now = new Date()
     ctx.fillText(`${now.toISOString().slice(0, 10)} ${now.toTimeString().slice(0, 8)} UTC`, 12, h - 12)
     ctx.textAlign = "right"
-    ctx.fillText("24.7136\u00b0N 46.6753\u00b0E  Riyadh", w - 12, h - 12)
+    ctx.fillText(`${siteConfig.coordinates.lat}\u00b0N ${siteConfig.coordinates.lon}\u00b0E  ${siteConfig.coordinates.label}`, w - 12, h - 12)
 
     frameRef.current = requestAnimationFrame(draw)
   }, [hovered])
