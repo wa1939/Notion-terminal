@@ -25,7 +25,7 @@ Write in Obsidian. Push to GitHub. Your site updates.<br/>No database. No CMS. N
 [![Last Commit](https://img.shields.io/github/last-commit/wa1939/termfolio?style=flat&color=E8B87E&labelColor=0B0B0F)](https://github.com/wa1939/termfolio/commits/main)
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fwa1939%2Ftermfolio&label=visitors&labelColor=%230B0B0F&countColor=%237dd3fc)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fwa1939%2Ftermfolio)
 
-[Live Demo](https://waleedalghamdi.com) · [Deploy Your Own](#-deploy-in-3-minutes) · [Full Tutorial](https://waleedalghamdi.com/blog/building-terminal-website)
+[Live Demo](https://waleedalghamdi.com) · [Deploy Your Own](#-deploy-in-3-minutes) · [Full Tutorial](https://waleedalghamdi.com/blog/deploy-your-terminal-portfolio)
 
 </div>
 
@@ -59,7 +59,7 @@ No local setup required. Click, paste, done.
 
 After deploy, clone your fork and edit **one file** — [`content/site.ts`](#-configure-from-one-file) — to make it yours. Push. Done.
 
-> **Want a full walkthrough with screenshots?** Read the [step-by-step tutorial](https://waleedalghamdi.com/blog/building-terminal-website).
+> **Want a full walkthrough with screenshots?** Read the [step-by-step tutorial](https://waleedalghamdi.com/blog/deploy-your-terminal-portfolio).
 
 ---
 
