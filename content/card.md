@@ -31,8 +31,8 @@ contacts:
     value: "waok@outlook.sa"
   - type: phone
     label: "Mobile"
-    value: "+966XXXXXXXXX"
+    value: "+966561714943"
   - type: whatsapp
     label: "WhatsApp"
-    value: "+966XXXXXXXXX"
+    value: "+966561714943"
 ---
