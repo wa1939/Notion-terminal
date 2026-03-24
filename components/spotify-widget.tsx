@@ -34,31 +34,21 @@ export default function SpotifyWidget() {
   const [playing, setPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const wantsToPlayRef = useRef(true) // user intent: should music be playing?
-  const mountedRef = useRef(true)
 
   const track = TRACKS[trackIdx]
 
-  // Single play function that respects user intent
-  const startPlaying = useCallback(() => {
-    const audio = audioRef.current
-    if (!audio) return
-    wantsToPlayRef.current = true
-    audio.play().catch(() => {
-      // Browser blocked — will retry on interaction
-    })
+  const play = useCallback(() => {
+    audioRef.current?.play().catch(() => {})
   }, [])
 
   const togglePlay = useCallback(() => {
-    const audio = audioRef.current
-    if (!audio) return
+    if (!audioRef.current) return
     if (playing) {
-      wantsToPlayRef.current = false
-      audio.pause()
+      audioRef.current.pause()
     } else {
-      startPlaying()
+      play()
     }
-  }, [playing, startPlaying])
+  }, [playing, play])
 
   const prevTrack = useCallback(() => {
     setTrackIdx((i) => (i - 1 + TRACKS.length) % TRACKS.length)
@@ -78,49 +68,16 @@ export default function SpotifyWidget() {
     [duration],
   )
 
-  // Load and play when track changes (including initial mount)
+  // When track changes, load and resume if was playing
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
-
-    const onCanPlay = () => {
-      if (wantsToPlayRef.current && mountedRef.current) {
-        audio.play().catch(() => {
-          // Blocked by browser — interaction listener will handle it
-        })
-      }
-    }
-
-    audio.src = track.src
     audio.load()
-    audio.addEventListener("canplay", onCanPlay, { once: true })
-
-    return () => {
-      audio.removeEventListener("canplay", onCanPlay)
+    if (playing) {
+      play()
     }
-  }, [trackIdx, track.src])
-
-  // On first user interaction anywhere, start playing if we haven't yet
-  useEffect(() => {
-    const onInteraction = () => {
-      const audio = audioRef.current
-      if (audio && audio.paused && wantsToPlayRef.current) {
-        audio.play().catch(() => {})
-      }
-    }
-
-    document.addEventListener("click", onInteraction)
-    document.addEventListener("touchstart", onInteraction)
-    document.addEventListener("keydown", onInteraction)
-    document.addEventListener("scroll", onInteraction, { passive: true })
-
-    return () => {
-      document.removeEventListener("click", onInteraction)
-      document.removeEventListener("touchstart", onInteraction)
-      document.removeEventListener("keydown", onInteraction)
-      document.removeEventListener("scroll", onInteraction)
-    }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trackIdx])
 
   // Audio event listeners
   useEffect(() => {
@@ -151,13 +108,6 @@ export default function SpotifyWidget() {
     }
   }, [])
 
-  // Cleanup
-  useEffect(() => {
-    return () => {
-      mountedRef.current = false
-    }
-  }, [])
-
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0
   const barLen = 24
   const filled = Math.floor((progress / 100) * barLen)
@@ -165,7 +115,7 @@ export default function SpotifyWidget() {
 
   return (
     <div className="border border-term-line bg-term-darker font-mono text-xs">
-      <audio ref={audioRef} preload="auto" />
+      <audio ref={audioRef} src={track.src} preload="metadata" />
 
       <div className="flex items-center justify-between px-3 py-2 text-term-gray uppercase tracking-[0.14em] border-b border-term-line">
         <span>♫ now playing</span>
