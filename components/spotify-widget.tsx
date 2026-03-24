@@ -7,17 +7,12 @@ const TRACKS = [
   {
     title: "Good Night",
     artist: "FASSounds",
-    src: "/audio/good-night.mp3",
+    src: "https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3",
   },
   {
     title: "Lofi Study",
     artist: "FASSounds",
-    src: "/audio/lofi-study.mp3",
-  },
-  {
-    title: "Chill Vibes",
-    artist: "Lo-Fi Chill",
-    src: "/audio/chill-vibes.mp3",
+    src: "https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3",
   },
 ]
 
