@@ -37,7 +37,49 @@ Before we start, here's what you're deploying:
 
 Everything is configured from **one file**: `content/site.ts`. No digging through components.
 
-![Home page](/images/blog/tutorial/home.png)
+![Home page — terminal boot with ASCII art, profile, and live commands](/images/blog/tutorial/home.png)
+
+### Games Built Into the Terminal
+
+Type `snake`, `pokedex`, or `type` in the command prompt to play right inside your portfolio.
+
+![Snake game running in the terminal](/images/blog/tutorial/terminal-snake.png)
+
+![Creature catalog — a Pokedex-style browser with stats and ASCII art](/images/blog/tutorial/terminal-pokedex.png)
+
+### Interactive Star Map
+
+Type `stars` to launch a live star map rendered from your city's coordinates. 14 constellations, 79 stars, twinkling simulation.
+
+![Star map — azimuthal projection based on your location](/images/blog/tutorial/terminal-stars.png)
+
+### 3 Reading Themes
+
+Every blog post includes a reading controls panel — switch between Terminal, Sepia, and Light themes instantly. Adjust font size, spacing, and toggle focus mode.
+
+![Terminal theme — dark, monospaced, distraction-free](/images/blog/tutorial/blog-reading-terminal.png)
+
+![Sepia theme — warm, paper-like, easy on the eyes](/images/blog/tutorial/blog-reading-sepia.png)
+
+![Light theme — clean, bright, high contrast](/images/blog/tutorial/blog-reading-light.png)
+
+### Comments Powered by GitHub
+
+Readers comment using their GitHub account via [Giscus](https://giscus.app). No database, no moderation tools to learn — comments live in your repo's Discussions tab.
+
+![Giscus comments section — reactions, discussion, sign in with GitHub](/images/blog/tutorial/blog-comments.png)
+
+### Journal with Search and Knowledge Graph
+
+The blog page includes full-text search, tag filtering, and an interactive knowledge graph that maps connections between your posts.
+
+![Journal page — search, tags, and knowledge graph](/images/blog/tutorial/blog-journal.png)
+
+### Contact Page with Newsletter
+
+A clean contact page with Cal.com booking, email, and a newsletter signup powered by Resend. No third-party forms.
+
+![Contact page — booking, email, and newsletter subscription](/images/blog/tutorial/contact-page.png)
 
 ---
 
@@ -325,6 +367,8 @@ NEXT_PUBLIC_GISCUS_CATEGORY_ID=DIC_xxxxxxxxxx
 
 Comments now appear at the bottom of every blog post.
 
+![What comments look like on your site — Giscus with reactions and GitHub sign-in](/images/blog/tutorial/blog-comments.png)
+
 ---
 
 ## Optional: Connect Obsidian (5 Minutes)
@@ -413,7 +457,9 @@ SSL is automatic. Your site is live at `yourdomain.com`.
 
 ## Optional: Newsletter Notifications
 
-The newsletter is already working from the deploy step. When someone subscribes on your site, they're added to your Resend audience.
+The newsletter is already working from the deploy step. When someone subscribes on your site, they're added to your [Resend](https://resend.com) audience.
+
+![Contact page with newsletter signup powered by Resend](/images/blog/tutorial/contact-page.png)
 
 To notify all subscribers when you publish a new post:
 
