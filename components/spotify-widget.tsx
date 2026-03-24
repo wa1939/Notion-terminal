@@ -81,40 +81,49 @@ export default function SpotifyWidget() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackIdx])
 
-  // Autoplay: try immediately, fall back to first user interaction
+  // Autoplay: start muted (browsers allow this), unmute on first interaction
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
 
-    let cleanupInteraction: (() => void) | null = null
+    // Browsers allow muted autoplay — start playing silently
+    audio.muted = true
+    audio.volume = 0
 
-    const tryAutoplay = () => {
-      audio.play().catch(() => {
-        // Browser blocked autoplay — start on first user interaction
-        const startOnInteraction = () => {
-          audio.play().catch(() => {})
-          cleanup()
-        }
-        const cleanup = () => {
-          document.removeEventListener("click", startOnInteraction)
-          document.removeEventListener("touchstart", startOnInteraction)
-          document.removeEventListener("keydown", startOnInteraction)
-        }
-        document.addEventListener("click", startOnInteraction)
-        document.addEventListener("touchstart", startOnInteraction)
-        document.addEventListener("keydown", startOnInteraction)
-        cleanupInteraction = cleanup
-      })
+    const startMuted = () => {
+      audio.play().catch(() => {})
     }
 
     if (audio.readyState >= 2) {
-      tryAutoplay()
+      startMuted()
     } else {
-      audio.addEventListener("canplay", tryAutoplay, { once: true })
+      audio.addEventListener("canplay", startMuted, { once: true })
     }
 
+    // Unmute on first user interaction
+    const unmute = () => {
+      audio.muted = false
+      audio.volume = 1
+      // If somehow not playing yet, start now
+      if (audio.paused) {
+        audio.play().catch(() => {})
+      }
+      document.removeEventListener("click", unmute)
+      document.removeEventListener("touchstart", unmute)
+      document.removeEventListener("keydown", unmute)
+      document.removeEventListener("scroll", unmute)
+    }
+
+    document.addEventListener("click", unmute)
+    document.addEventListener("touchstart", unmute)
+    document.addEventListener("keydown", unmute)
+    document.addEventListener("scroll", unmute)
+
     return () => {
-      cleanupInteraction?.()
+      document.removeEventListener("click", unmute)
+      document.removeEventListener("touchstart", unmute)
+      document.removeEventListener("keydown", unmute)
+      document.removeEventListener("scroll", unmute)
     }
   }, [])
 
