@@ -81,8 +81,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <span>journal entry</span>
             </div>
 
-            <div className="grid gap-8 px-3 py-5 sm:px-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:p-6">
-              <div className="space-y-8">
+            <div className="grid grid-cols-[minmax(0,1fr)] gap-8 px-3 py-5 sm:px-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:p-6">
+              <div className="space-y-8 min-w-0">
                 <header className="space-y-5 border-b border-[var(--term-line)] pb-6">
                   {/* Cover Image - Full Width, Rounded */}
                   {post.coverImage && (

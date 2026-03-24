@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-const CAL_URL = "https://app.cal.com/waleedalghamdi/30min?embed&theme=dark&layout=month_view"
+const CAL_URL = "https://cal.com/walhamed/30min?embed&theme=dark&layout=month_view"
 
 export default function CalEmbed() {
   const [loaded, setLoaded] = useState(false)
@@ -11,7 +11,7 @@ export default function CalEmbed() {
     <div className="border border-term-line bg-term-darker rounded-lg overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 border-b border-term-line text-xs uppercase tracking-[0.14em] text-term-gray">
         <span>
-          <span className="text-term-cyan">$</span> cal.com/waleedalghamdi
+          <span className="text-term-cyan">$</span> cal.com/walhamed
         </span>
         <span>book a session</span>
       </div>
