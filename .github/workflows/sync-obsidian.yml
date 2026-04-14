@@ -38,8 +38,9 @@ on:
   repository_dispatch:
     types: [sync-obsidian]
   workflow_dispatch:
-  schedule:
-    - cron: "0 6 * * *" # Daily at 6 AM UTC
+  # Uncomment the schedule once you configure VAULT_REPO, VAULT_PAT, and VAULT_PATH secrets:
+  # schedule:
+  #   - cron: "0 6 * * *" # Daily at 6 AM UTC
 
 jobs:
   sync:
