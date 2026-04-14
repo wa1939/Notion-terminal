@@ -41,12 +41,17 @@ on:
   schedule:
     - cron: "0 6 * * *" # Daily at 6 AM UTC
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout site repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.VAULT_PAT }}
 
       - name: Checkout vault repo
         uses: actions/checkout@v4
