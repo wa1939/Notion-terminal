@@ -1,10 +1,10 @@
 ---
 name: "Waleed Alhamed"
-title: "Co-founder & CPO, Neuravisor | Culture & EX Lead, ELM"
+title: "Co-founder & CPO, Neuravisor | People Lab Section Head, ELM"
 company: "Neuravisor · Elm Company"
 location: "Riyadh, Saudi Arabia"
 avatar: "/profile.jpg"
-bio: "Co-founder & CPO, Neuravisor | Culture & EX Lead, ELM. Driving growth through AI-driven transformation and strategic culture alignment."
+bio: "Co-founder & CPO, Neuravisor | People Lab Section Head — People Analytics & Research, ELM. Building AI-driven analytics, predictive models, and research that turn culture and EX into evidence-backed strategy."
 
 # ── Links ── Browsable profiles & websites ──
 links:
