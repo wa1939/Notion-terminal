@@ -88,11 +88,18 @@ export const siteConfig = {
   ],
   experience: [
     {
-      period: "2025 - present",
+      period: "Apr 2026 - present",
+      role: "People Lab Section Head \u2014 People Analytics & Research",
+      company: "Elm Company (PIF subsidiary)",
+      summary:
+        "Leading Elm's People Lab \u2014 a centralized, AI-enabled data engine unifying scattered enterprise data into one decision platform. Shipping predictive models that forecast burnout, turnover, and engagement drops before they happen. Establishing a research hub with top Saudi universities to publish deep HR research, enrich Arabic content, and pursue global awards. Turning culture and EX from gut-feel into evidence-backed strategy.",
+    },
+    {
+      period: "2025 - Apr 2026",
       role: "Culture & Employee Experience Lead",
       company: "Elm Company (PIF subsidiary)",
       summary:
-        "Built and shipped an AI product that saved SAR 1M+ and cut ticket volume by 48%. Leading EX for ~7,000 employees. Driving M&A integration across ~3,000 employees \u2014 building the playbooks, teams, and systems from scratch.",
+        "Built and shipped an AI product that saved SAR 1M+ and cut ticket volume by 48%. Led EX for ~7,000 employees. Drove M&A integration across ~3,000 employees \u2014 building the playbooks, teams, and systems from scratch.",
     },
     {
       period: "2023 - 2025",
@@ -120,6 +127,9 @@ export const siteConfig = {
     "product building",
     "ai & ml products",
     "people analytics",
+    "predictive analytics",
+    "organizational research",
+    "research hubs",
     "predictive dashboards",
     "strategy execution",
     "team leadership",
