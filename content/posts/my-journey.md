@@ -2,7 +2,7 @@
 title: "Study Time Distractions: My Journey Building a Website While Prepping for the PMP Exam"
 slug: my-journey
 date: 2024-01-27
-author: Waleed Alghamdi
+author: Waleed Alhamed
 excerpt: When you need to study, suddenly everything else seems super interesting — like building your own website from scratch.
 coverImage: /images/blog/pmp-distraction.jpeg
 tags:

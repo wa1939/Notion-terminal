@@ -2,14 +2,15 @@ export const siteConfig = {
   // ── Identity ──────────────────────────────────────────────────────
   name: "Waleed Alhamed",
   handle: "waok",
-  title: "Problem Solver · Product Builder · Strategy to Execution",
-  headline: "I build products, lead teams, and turn strategy into execution.",
-  tagline: "strategy · systems · journal",
+  title: "People Analytics & Research · AI HR Products",
+  headline: "I turn people data into decisions, products, and research.",
+  tagline: "people analytics · AI HR · research",
   description:
-    "A terminal-first personal site and journal by Waleed Alhamed, covering strategy, systems, and digital transformation.",
+    "A terminal-first personal site and journal by Waleed Alhamed, covering people analytics, AI in HR, culture, and research that moves from slideware to systems.",
   bio: [
-    "I solve hard problems. Whether it's building AI-powered products, leading data science teams, or launching new departments from zero — I move from idea to shipped outcome. I've built people analytics platforms, predictive dashboards, AI capabilities, and transformation frameworks across 20+ organizations.",
-    "My work sits where innovation meets execution: designing products people actually use, leading cross-functional teams, and deploying data-driven strategies that create measurable impact. I don't just consult — I build, ship, and iterate.",
+    "I lead People Analytics & Research at Elm, where I'm building a People Lab around a simple idea: people decisions should be backed by evidence, not vibes. The work is part data platform, part research hub, part AI product engine.",
+    "Right now that means unifying scattered workforce data, building models for burnout, turnover, and engagement risk, and turning culture and employee experience into something leaders can actually measure and act on.",
+    "Before this, I led culture and employee experience work across Elm, drove the HR workstream for the Elm × Thiqah merger, and helped build Najd, an on-prem Saudi AI HR assistant that cut HR tickets by 48% and saved SAR 1M+ by being built in-house. I like work that ships.",
   ],
 
   // ── Visuals ───────────────────────────────────────────────────────
@@ -61,14 +62,14 @@ export const siteConfig = {
   },
 
   whoami: {
-    focus: "strategy, systems, digital transformation",
-    status: "building things that matter",
+    focus: "people analytics, AI HR products, organizational research",
+    status: "building the People Lab at Elm",
   },
 
   terminalSkills: [
-    "change management  // project leadership  // product thinking",
-    "python             // ai integration      // dashboards",
-    "customer-centered  // problem solving     // systems design",
+    "people analytics   // ai hr products   // research systems",
+    "python + power bi  // predictive models // data storytelling",
+    "culture + ex       // m&a integration  // change execution",
   ],
 
   // ── Attribution (for open-source forks) ───────────────────────────
@@ -81,54 +82,63 @@ export const siteConfig = {
 
   // ── Professional ──────────────────────────────────────────────────
   stats: [
-    { label: "products built", value: "10+" },
-    { label: "organizations impacted", value: "20+" },
-    { label: "hackathon wins", value: "3" },
-    { label: "approach", value: "build \u00D7 ship \u00D7 iterate" },
+    { label: "organizations advised", value: "20+" },
+    { label: "employee scope", value: "7k+" },
+    { label: "M&A integration", value: "3k" },
+    { label: "AI HR impact", value: "-48% tickets" },
   ],
   experience: [
     {
-      period: "2025 - present",
+      period: "2026 - present",
+      role: "People Analytics & Research Section Head",
+      company: "Elm Company (PIF subsidiary)",
+      summary:
+        "Building Elm's People Lab: an AI-enabled people data platform, predictive workforce risk models, and a research hub with Saudi university partners. The goal is simple: turn scattered HR data into decisions leaders can trust.",
+    },
+    {
+      period: "2025 - 2026",
       role: "Culture & Employee Experience Lead",
       company: "Elm Company (PIF subsidiary)",
       summary:
-        "Built and shipped an AI product that saved SAR 1M+ and cut ticket volume by 48%. Leading EX for ~7,000 employees. Driving M&A integration across ~3,000 employees \u2014 building the playbooks, teams, and systems from scratch.",
+        "Led culture, engagement, change, and IP governance across ~7,000 employees. Led the Elm × Thiqah M&A HR workstream across HRIS, culture, rewards, and policy for ~3,000 employees. Product-managed Najd 2.0 from internal assistant to delivery handoff after a 48% HR ticket drop.",
     },
     {
       period: "2023 - 2025",
       role: "Culture & Employee Experience Consultant",
       company: "Elm Company",
       summary:
-        "Built people analytics dashboards, prediction models, and AI capability programs. Led a data science team to deliver workforce insights and launched multiple internal products from zero.",
+        "Built Najd, Elm's Saudi on-prem AI HR assistant for Microsoft Teams, using RAG to answer HR questions inside the flow of work. Built the M&A playbook, due diligence framework, values refresh, and employee journey improvements around practical execution, not workshop theater.",
+    },
+    {
+      period: "2024 - 2025",
+      role: "Independent Consultant (SME)",
+      company: "Freelance & partner-led engagements",
+      summary:
+        "Built turnover analytics for RCJY across four cities and contributed to workforce planning. Created an interactive operations manual for HRSD's Sectoral Skills Councils initiative and helped teams turn messy processes into usable systems.",
     },
     {
       period: "2022 - 2023",
       role: "Consultant & Business Analyst",
       company: "Baseqat Arabia Consulting",
       summary:
-        "Shipped 15+ transformation projects for STC Group, Mobily, SANS, and GEA. Built strategy execution frameworks, led cross-functional teams, and delivered data-driven solutions end-to-end.",
-    },
-    {
-      period: "2021 - 2022",
-      role: "Independent Consultant (SME)",
-      company: "Freelance & partner-led engagements",
-      summary:
-        "Built Power BI dashboards and analytics products for RCJY. Authored operations systems for SSC/HRSD. Solved complex process problems with data-first approaches.",
+        "Delivered 15+ culture transformation, operating model, process, and client journey projects for STC Group, Mobily, SANS, GEA, Weqaa, and others. Built action plans, dashboards, and operating systems that moved from diagnosis to implementation.",
     },
   ],
   skills: [
-    "product building",
-    "ai & ml products",
     "people analytics",
-    "predictive dashboards",
-    "strategy execution",
-    "team leadership",
-    "python & automation",
-    "data science",
-    "power bi",
-    "problem solving",
-    "digital transformation",
-    "innovation",
+    "organizational research",
+    "AI HR products",
+    "predictive analytics",
+    "workforce risk models",
+    "culture & employee experience",
+    "M&A integration",
+    "change management",
+    "HR strategy",
+    "product management",
+    "Power BI",
+    "Python & automation",
+    "data storytelling",
+    "research partnerships",
   ],
   certifications: [
     {

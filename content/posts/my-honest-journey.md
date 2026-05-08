@@ -2,7 +2,7 @@
 title: "My Honest Journey: From Snooze Button to Success"
 slug: my-honest-journey
 date: 2023-11-22
-author: Waleed Alghamdi
+author: Waleed Alhamed
 excerpt: My real deal with changing habits — from doubting the power of routines to finding a harmonious balance.
 coverImage: /images/blog/habits-cover.png
 tags:
